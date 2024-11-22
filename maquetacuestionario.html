@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTracking</title>
+    <link rel="stylesheet" href="stylescuestionario.css" />
+    <link rel="shortcut icon" href="logo1.png" type="image/x-icon">
+</head>
+  <body>
+
+    <div class="container">
+      <h1>FitTracking</h1>
+      <form id="formSalud">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required />
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required />
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" step="0.1" required />
+
+        <label for="altura">Altura (m):</label>
+        <input type="number" id="altura" step="0.01" required />
+
+        <label for="actividad"
+          >¿Cuántos minutos de actividad física haces al día?</label
+        >
+        <input type="number" id="actividad" required />
+
+        <label for="agua">¿Cuántos vasos de agua consumes al día?</label>
+        <input type="number" id="agua" required />
+
+        <label for="alergias"
+          >¿Tienes alergias conocidas? (Especifica o escribe "No"):</label
+        >
+        <input type="text" id="alergias" required />
+
+        <button type="button" onclick="generarRecomendaciones()">
+          Obtener Recomendaciones
+        </button>
+      </form>
+
+      <div id="recomendaciones" class="recomendaciones"></div>
+    </div>
+    <script src="scriptcuestionario.js"></script>
+  </body>
+</html>
