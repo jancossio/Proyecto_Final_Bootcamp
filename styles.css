@@ -37,7 +37,7 @@ html {
 }
 
 .nav-item:hover {
-  color: #2ecc71; /* Green hover effect */
+  color: #2ecc71; 
 }
 
 .login-button {
@@ -45,9 +45,10 @@ html {
   color: #fff;
   padding: 10px 20px;
   border-radius: 20px;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: inherit;
   
 }
 
