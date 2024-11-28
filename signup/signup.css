@@ -5,12 +5,30 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #cbd7cb;
-}
+  background: rgb(203, 215, 203);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+}
+a{
+  font-size: 15px;
+  color: #0099ff;
+  text-decoration: none;
+  text-decoration: underline;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.logo{
+  width: 180px;
+  height: 150px;
+  position: absolute;
+  top: 9%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  max-width: 100%; 
+  height: auto;
+}
 .container {
   max-width: 400px;
-  height: 500px;
+  height: 530px;
   background: #fbf8fd;
   background: linear-gradient(
     0deg,
@@ -21,7 +39,8 @@ body {
   padding: 25px 35px;
   border: 5px solid rgb(255, 255, 255);
   box-shadow: rgb(101, 147, 104) 0px 30px 30px -20px;
-  margin: 20px;
+  margin: 10px;
+  
 }
 
 .heading {
@@ -29,7 +48,6 @@ body {
   font-weight: 800;
   font-size: 30px;
   color: #2ecc71;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .form {

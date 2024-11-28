@@ -6,9 +6,19 @@ body {
     align-items: center;
     height: 100vh;
     background: #cbd7cb; 
-    
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
   }
-  
+  .logo{
+    width: 190px;
+    height: 160px;
+    position: absolute;
+    top: 15%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    max-width: 100%; 
+    height: auto;
+  }
   .container {
     max-width: 400px;
     height: 350px;
@@ -68,6 +78,7 @@ body {
     color: #0099ff;
     text-decoration: none;
     text-decoration: underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   .form .signup {
     display: block;
@@ -75,10 +86,12 @@ body {
     margin-left: 10px;
   }
   .form .signup a {
-    font-size: 16px;
+    font-size: 14px;
     color: #0099ff;
     text-decoration: none;
     text-decoration: underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
   }
   .form .login-button {
     display: block;
