@@ -96,7 +96,7 @@ body{
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: 2px solid black;
-  padding: 7px;
+  padding: 10px;
 }
 .containersobrenosotros h1{
 text-align: center;
@@ -111,7 +111,7 @@ text-align: center;
   margin-right: 10%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding: 7px;
+  padding: 10px;
 }
 .containercontacto h1{
 text-align: center;
@@ -123,14 +123,14 @@ footer{
   margin: 5px;
 }
 
-/* Estilos iniciales para ocultar el contenedor */
+
 .appear {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* Clase para mostrar el contenedor */
+
 .appear.show {
   opacity: 1;
   transform: translateY(0);
