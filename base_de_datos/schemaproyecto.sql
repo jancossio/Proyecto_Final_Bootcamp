@@ -49,6 +49,33 @@ CREATE TABLE dieta (
   CONSTRAINT dieta_ibfk_1 FOREIGN KEY (dades_usuari_id) REFERENCES dades_usuari(id)
 );
 
+DROP TABLE IF EXISTS plato;
+CREATE TABLE plato (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    id_dieta INT,
+    FOREIGN KEY (id_dieta) REFERENCES dieta(id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS alimento;
+CREATE TABLE alimento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(40) NOT NULL,
+    cantidad INT, 
+    calorias INT
+);
+
+DROP TABLE IF EXISTS plato_alimento;
+CREATE TABLE plato_alimento (
+    id_plato INT,
+    id_alimento INT,
+    cantidad INT,  -- Cantidad del alimento en el plato (puede ser un valor como gramos, unidades, etc.)
+    PRIMARY KEY (id_plato, id_alimento),
+    FOREIGN KEY (id_plato) REFERENCES plato(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_alimento) REFERENCES alimento(id) ON DELETE CASCADE
+);
+
 DROP TABLE IF EXISTS recomendacion;
 CREATE TABLE recomendacion (
   id int NOT NULL AUTO_INCREMENT,
