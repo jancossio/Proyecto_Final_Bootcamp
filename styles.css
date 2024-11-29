@@ -9,6 +9,20 @@ html {
 body {
   background-color: black;
 }
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  font-size: 14.5px;
+}
 
 h1 {
   font-size: 30px;
@@ -193,21 +207,19 @@ section img:hover {
   display: flex;
   list-style: none;
   padding: 0;
-  
 }
 
 .icon {
   position: relative;
   margin-right: 20px;
-  
 }
 
 .icon a {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .tooltip {
@@ -236,7 +248,7 @@ section img:hover {
 }
 
 .icon:hover svg {
-  fill: #000; 
+  fill: #000;
 }
 
 .wrapper {
@@ -338,7 +350,7 @@ section img:hover {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative; 
+  position: relative;
 }
 
 iframe {
@@ -359,6 +371,6 @@ iframe {
   text-decoration: none;
 }
 
-.horario{
+.horario {
   margin-bottom: 0px;
 }
