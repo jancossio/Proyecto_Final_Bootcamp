@@ -101,30 +101,36 @@ CREATE TABLE plan_ejercicio (
   CONSTRAINT plan_ejercicio_ibfk_1 FOREIGN KEY (dades_usuari_id) REFERENCES dades_usuari (id)
 );
 
-DROP TABLE IF EXISTS ejercicio_dia_semana;
-CREATE TABLE ejercicio_dia_semana (
-  id int NOT NULL AUTO_INCREMENT,
-  plan_ejercicio_id int DEFAULT NULL,
-  version int DEFAULT NULL,
-  fecha_creacion datetime DEFAULT NULL,
-  estado varchar(50) DEFAULT NULL,
+DROP TABLE IF EXISTS grupos_ejercicio_dia;
+CREATE TABLE grupos_ejercicio_dia (
+  id INT NOT NULL AUTO_INCREMENT,
+  plan_ejercicio_id INT DEFAULT NULL,  -- FK a plan_ejercicio
+  dia_semana VARCHAR(20) NOT NULL,  -- Lunes, Martes, etc.
   PRIMARY KEY (id),
   KEY plan_ejercicio_id (plan_ejercicio_id),
-  CONSTRAINT ejercicio_dia_semana_ibfk_1 FOREIGN KEY (plan_ejercicio_id) REFERENCES plan_ejercicio (id)
+  CONSTRAINT grupos_ejercicio_dia_ibfk_1 FOREIGN KEY (plan_ejercicio_id) REFERENCES plan_ejercicio (id)
 );
 
 DROP TABLE IF EXISTS plan_ejercicio_detalle;
 CREATE TABLE plan_ejercicio_detalle (
-  id int NOT NULL AUTO_INCREMENT,
-  ejercicio_dia_semana_id int DEFAULT NULL,
-  ejercicio_id int DEFAULT NULL,
-  repeticiones int DEFAULT NULL,
-  series int DEFAULT NULL,
-  duracion_min int DEFAULT NULL,
-  descanso_segundos int DEFAULT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  tipo VARCHAR(100), -- Tipo de ejercicio (Cardio, Fuerza, etc.)
+  repeticiones INT DEFAULT NULL,
+  series INT DEFAULT NULL,
+  duracion_min INT DEFAULT NULL, -- Duración en minutos
+  descanso_segundos INT DEFAULT NULL, -- Descanso entre series
+  PRIMARY KEY (id)
+);
+CREATE TABLE ejercicio_grupo_relacion (
+  id INT NOT NULL AUTO_INCREMENT,
+  grupo_ejercicio_dia_id INT DEFAULT NULL,  -- FK a grupos_ejercicio_dia
+  plan_ejercicio_detalle_id INT DEFAULT NULL,  -- FK a ejercicio_detalle
   PRIMARY KEY (id),
-  KEY ejercicio_dia_semana_id (ejercicio_dia_semana_id),
-  CONSTRAINT plan_ejercicio_detalle_ibfk_1 FOREIGN KEY (ejercicio_dia_semana_id) REFERENCES ejercicio_dia_semana (id)
+  KEY grupo_ejercicio_dia_id (grupo_ejercicio_dia_id),
+  KEY plan_ejercicio_detalle_id (plan_ejercicio_detalle_id),
+  CONSTRAINT ejercicio_grupo_relacion_ibfk_1 FOREIGN KEY (grupo_ejercicio_dia_id) REFERENCES grupos_ejercicio_dia (id),
+  CONSTRAINT ejercicio_grupo_relacion_ibfk_2 FOREIGN KEY (plan_ejercicio_detalle_id) REFERENCES plan_ejercicio_detalle (id)
 );
 
 DROP TABLE IF EXISTS resultado_teorico;
@@ -152,4 +158,4 @@ CREATE TABLE resultado_teorico (
 );
 
 
-INSERT INTO usuaris VALUES (15,'usuario@prueba.com','mi_contraseña_123'),(16,'usuario1@prueba.com','mi_contraseña_345'),(17,'usuario2@prueba.com','mi_contraseña_678');
+
