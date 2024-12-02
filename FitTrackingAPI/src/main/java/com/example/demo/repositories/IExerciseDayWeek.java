@@ -8,5 +8,5 @@ import com.example.demo.entities.ExerciseDayWeek;
 import com.example.demo.entities.PlanExercise;
 
 public interface IExerciseDayWeek extends JpaRepository<ExerciseDayWeek, Long> {
-	List<ExerciseDayWeek> findByPlanExerciseId(Long userDataId);
+	List<ExerciseDayWeek> findByExercisePlanId(Long userDataId);
 }

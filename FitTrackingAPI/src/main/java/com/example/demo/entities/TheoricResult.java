@@ -23,13 +23,13 @@ public class TheoricResult {
 	private Long id;
 	
     @Column(name = "DADES_USUARI_ID")
-	private Long user_data_id;
+	private Long userDataId;
     
     @Column(name = "DIETA_ID")
-	private Long diet_id;
+	private Long dietId;
     
     @Column(name = "PLAN_EJERCICIO_ID")
-	private Long plan_exercise_id;
+	private Long planExerciseId;
 
     @Column(name = "FECHA_CREACION")
 	private Date initDate;
