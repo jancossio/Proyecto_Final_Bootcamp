@@ -15,7 +15,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @IdClass(PlateAlimentId.class)
+<<<<<<< HEAD:FitTrackingAPI/src/main/java/com/example/demo/entities/Plate_Aliment.java
 public class Plate_Aliment {
+=======
+
+public class PlateAliment {
+>>>>>>> dbce272d91070a0048a36cd24d9aa9a124736cbd:FitTrackingAPI/src/main/java/com/example/demo/entities/PlateAliment.java
 
 	@Id
     @Column(name = "ID_PLATO")
@@ -27,4 +32,5 @@ public class Plate_Aliment {
 	
     @Column(name = "CANTIDAD")
 	private Long quantity;
+
 }
