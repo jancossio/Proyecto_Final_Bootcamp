@@ -14,8 +14,8 @@ public class ExerciseDayWeekService {
 	@Autowired
 	IExerciseDayWeek repository;
 	
-	public List<ExerciseDayWeek> findDietsByExerciseDayWeek(Long userId) {
-        return repository.findByPlanExerciseId(userId);
+	public List<ExerciseDayWeek> findExerciseByPlan(Long userId) {
+        return repository.findByExercisePlanId(userId);
     }
 	
 	public ExerciseDayWeek findExerciseDayWeek(Long id){

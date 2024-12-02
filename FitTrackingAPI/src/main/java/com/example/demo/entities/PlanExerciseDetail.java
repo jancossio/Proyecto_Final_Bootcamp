@@ -22,10 +22,10 @@ public class PlanExerciseDetail {
 	private Long id;
 	
     @Column(name = "EJERCICIO_DIA_SEMANA_ID")
-	private Long exercise_day_week_id;
+	private Long exerciseDayWeekId;
     
     @Column(name = "EJERCICIO_ID")
-	private Long exercise_id;
+	private Long exerciseId;
     
     @Column(name = "REPETICIONES")
 	private Integer repetitions;

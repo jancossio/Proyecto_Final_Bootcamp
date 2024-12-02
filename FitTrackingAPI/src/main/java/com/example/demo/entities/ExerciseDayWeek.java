@@ -22,7 +22,7 @@ public class ExerciseDayWeek {
 	private Long id;
 	
     @Column(name = "PLAN_EJERCICIO_ID")
-	private Long exercise_plan_id;
+	private Long exercisePlanId;
     
     @Column(name = "VERSION")
 	private Integer version;

@@ -1,5 +1,9 @@
 package com.example.demo.repositories;
 
-public interface IAlimentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.entities.Aliment;
+
+public interface IAlimentRepository extends JpaRepository<Aliment, Long>{
 
 }
