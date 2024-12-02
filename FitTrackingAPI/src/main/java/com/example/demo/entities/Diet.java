@@ -24,7 +24,7 @@ public class Diet {
 	private Long id;
 	
     @Column(name = "DADES_USUARI_ID")
-	private Long user_data_id;
+	private Long userDataId;
     
     @Column(name = "NOMBRE")
 	private String name;
