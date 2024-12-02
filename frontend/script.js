@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const appearElements = document.querySelectorAll('.appear');
   
