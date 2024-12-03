@@ -15,4 +15,3 @@ document.addEventListener('DOMContentLoaded', () => {
   
     appearElements.forEach(element => observer.observe(element));
   });
-  
