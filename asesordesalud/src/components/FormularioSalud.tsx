@@ -45,7 +45,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
             <input
               type="text"
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
               value={datos.nombre}
               onChange={e => setDatos(prev => ({ ...prev, nombre: e.target.value }))}
             />
@@ -58,7 +58,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 type="number"
                 required
                 min="0"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
                 value={datos.edad || ''}
                 onChange={e => setDatos(prev => ({ ...prev, edad: Number(e.target.value) }))}
               />
@@ -71,7 +71,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 required
                 step="0.1"
                 min="0"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
                 value={datos.peso || ''}
                 onChange={e => setDatos(prev => ({ ...prev, peso: Number(e.target.value) }))}
               />
@@ -84,7 +84,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 required
                 step="0.01"
                 min="0"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
                 value={datos.altura || ''}
                 onChange={e => setDatos(prev => ({ ...prev, altura: Number(e.target.value) }))}
               />
@@ -102,7 +102,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
           <div>
             <label className="block text-sm font-medium text-gray-700">Nivel de actividad</label>
             <select
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 "
               value={datos.nivelActividad}
               onChange={e => setDatos(prev => ({ ...prev, nivelActividad: e.target.value }))}
             >
@@ -123,7 +123,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 type="number"
                 required
                 min="0"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
                 value={datos.consumoAgua || ''}
                 onChange={e => setDatos(prev => ({ ...prev, consumoAgua: Number(e.target.value) }))}
               />
@@ -138,7 +138,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 required
                 min="0"
                 max="24"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-white"
                 value={datos.horasSueno || ''}
                 onChange={e => setDatos(prev => ({ ...prev, horasSueno: Number(e.target.value) }))}
               />
@@ -152,7 +152,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                 type="range"
                 min="1"
                 max="10"
-                className="mt-1 block w-full accent-green-500"
+                className="mt-1 block w-full accent-emerald-200 "
                 value={datos.nivelEstres}
                 onChange={e => setDatos(prev => ({ ...prev, nivelEstres: Number(e.target.value) }))}
               />
@@ -173,7 +173,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
             <input
               type="text"
               placeholder="Lista tus alergias o escriba 'Ninguna'"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 "
               value={datos.alergias}
               onChange={e => setDatos(prev => ({ ...prev, alergias: e.target.value }))}
             />
@@ -231,7 +231,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
 
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors duration-200"
+        className="w-full bg-emerald-100 text-emerald-700 font-semibold	py-2 px-4 rounded-md hover:bg-emerald-200 transition-colors duration-200"
       >
         Obtener recomendaciones
       </button>

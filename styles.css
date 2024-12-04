@@ -95,7 +95,10 @@ p {
   font-family: inherit;
   margin: 4px;
 }
-
+.signup-button:hover {
+  background-color: #27ae60;
+  color: #f9f9f9;
+}
 .login-button:hover {
   background-color: #27ae60;
   color: #f9f9f9;
