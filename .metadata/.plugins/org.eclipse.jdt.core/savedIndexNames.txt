@@ -1,3 +1,0 @@
-INDEX VERSION 1.134+C:\Users\newga\Desktop\Proyecto_Final_Bootcamp\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-3323155067.index
