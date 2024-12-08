@@ -1,4 +1,14 @@
-/*:root {
+:root {
+  color: #15803d;
+  background-color: #f0fdf4;
+}
+
+:root.dark-theme {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1a2f1a;
+}
+
+/* :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -9,31 +19,32 @@
   :root.dark-theme {
     color: rgba(255, 255, 255, 0.87);
     background-color: #1a2f1a;
-  }
+  }*/
   
-  body {
+  #seguimiento-peso-page {
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     min-width: 320px;
     min-height: 100vh;
   }
   
-  #root {
+  /*#root {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-  }
+  }*/
   
-  .header {
+  /*.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-  }
+  }*/
   
-  h1 {
+  .h1-weight-track {
     font-size: 2.5em;
     margin: 0;
     color: #22c55e;

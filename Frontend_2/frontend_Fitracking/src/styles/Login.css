@@ -1,4 +1,4 @@
- #login-page {
+  #login-page {
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,7 +21,7 @@
     height: auto;
   }
 
-  .container {
+  .container-login {
     max-width: 400px;
     height: 350px;
     background: #fbf8fd;
@@ -33,7 +33,7 @@
     margin: 20px;
   }
    
-  .heading {
+  .heading-login {
     text-align: center;
     font-weight: 800;
     font-size: 30px;
@@ -41,12 +41,13 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
-  .form {
+  .login-form {
     margin-top: 20px;
   }
   
-  .form .input {
-    width: 360px;
+  .login-form .input {
+    /* width: 360px; */
+    width: 100%;
     background: white;
     border: none;
     padding: 15px 20px;
@@ -56,38 +57,38 @@
     border-inline: 2px solid transparent;
   }
   
-  .form .input::-moz-placeholder {
+  .login-form.input::-moz-placeholder {
     color: rgb(170, 170, 170);
   }
   
-  .form .input::placeholder {
+  .login-form.input::placeholder {
     color: rgb(170, 170, 170);
   }
   
-  .form .input:focus {
+  .login-form.input:focus {
     outline: none;
     border-inline: 2px solid #2ecc71;
   }
   
-  .form .forgot-password {
+  .login-form.forgot-password {
     display: block;
     margin-top: 10px;
     margin-left: 10px;
   }
 
-  .form .forgot-password a {
+  .login-form.forgot-password a {
     font-size: 14px;
     color: #0099ff;
     text-decoration: none;
     text-decoration: underline;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
-  .form .signup {
+  .login-form.signup {
     display: block;
     margin-top: 10px;
     margin-left: 10px;
   }
-  .form .signup a {
+  .login-form.signup a {
     font-size: 14px;
     color: #0099ff;
     text-decoration: none;
@@ -95,7 +96,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   }
-  .form .login-button {
+  .login-form .login-button {
     display: block;
     width: 100%;
     font-weight: bold;
@@ -109,13 +110,13 @@
     transition: all 0.2s ease-in-out;
   }
   
-  .form .login-button:hover {
+  .login-form .login-button:hover {
     transform: scale(1.03);
     box-shadow: rgb(101, 147, 104) 0px 23px 10px -20px;
     cursor: pointer;
   }
   
-  .form .login-button:active {
+  .login-form .login-button:active {
     transform: scale(0.95);
     box-shadow: rgb(101, 147, 104) 0px 15px 10px -10px;
   }

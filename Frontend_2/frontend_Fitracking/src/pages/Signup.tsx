@@ -8,10 +8,10 @@ const Signup = () => {
         <a href="/">
             <img src="../../public/images/favicon.png" alt="logo" className="signup-logo"/>
         </a>
-        <div className="container">
-        <div className="heading">Regístrate</div>
+        <div className="container-signup">
+        <div className="heading-signup">Regístrate</div>
 
-        <form action="" className="form">
+        <form action="" className="signup-form">
 
             <input
             //required=""

@@ -5,13 +5,25 @@ import Recomendaciones from '../components/Recomendaciones';
 import { HealthFormData } from '../types/health';
 import '../styles/Asesor_salud.css';
 
+// /** @type {import('tailwindcss').Config} */
+// module.exports = {
+//   content: [
+//     "/frontend_Fitracking/src/pages/Asesor_salud.tsx", // Path to your specific page
+//     "/frontend_Fitracking/src/styles/Asesor_salud.css", // Path to the associated CSS file
+//   ],
+//   theme: {
+//     extend: {}, // Extend with customizations if needed
+//   },
+//   plugins: [],
+// };
+
 const Asesor_salud = () => {
   
     const [datosFormulario, setDatosFormulario] = React.useState<HealthFormData | null>(null);
 
     return (
-        <div>
-<div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+        <div className="tailwind-scope">
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-2">

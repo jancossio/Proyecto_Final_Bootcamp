@@ -4,13 +4,13 @@ import '../styles/Login.css';
 const Login = () => {
   
     return (
-    <main className='login-page'>
+    <main id='login-page'>
          <a href="/">
         <img src="../../public/images/favicon.png" alt="logo" className="login-logo" />
       </a>
-      <div className="container">
-        <div className="heading">Iniciar sesión</div>
-        <form className="form">
+      <div className="container-login">
+        <div className="heading-login">Iniciar sesión</div>
+        <form className="login-form">
           <input
             required
             className="input"

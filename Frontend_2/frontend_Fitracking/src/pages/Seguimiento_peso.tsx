@@ -8,11 +8,11 @@ const Seguimiento_peso = () => {
     const { weightData, addEntry } = useWeightData();
   
     return (
-      <div className="app">
-        <h1>Weight Tracker</h1>
+      <main id="seguimiento-peso-page">
+        <h1 className='h1-weight-track'>Weight Tracker</h1>
         <WeightForm onSubmit={addEntry} />
         <WeightChart data={weightData} />
-      </div>
+      </main>
     );
   };
   

@@ -1,11 +1,13 @@
-* {
+/** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+
   html {
     scroll-behavior: smooth;
-  }
+  }*/
+
   #home-page {
     background-color: black;
     font-family: "Poppins", sans-serif;
@@ -71,7 +73,7 @@
     color: #2ecc71;
   }
   
-  .login-button {
+  .login-button-home {
     background-color: #2ecc71;
     color: #fff;
     padding: 10px 20px;
@@ -82,7 +84,7 @@
     font-family: inherit;
     margin-left: 20px;
   }
-  .signup-button {
+  .signup-button-home {
     background-color: #2ecc71;
     color: #fff;
     padding: 10px 20px;
@@ -94,7 +96,7 @@
     margin: 4px;
   }
   
-  .login-button:hover {
+  .login-button-home:hover {
     background-color: #27ae60;
     color: #f9f9f9;
   }

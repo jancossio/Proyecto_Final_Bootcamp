@@ -64,12 +64,12 @@ const Home = () => {
           </li>
           <li className="separador">|</li>
           <li>
-            <a href="/Login" className="nav-item login-button">
+            <a href="/Login" className="nav-item login-button-home">
               Iniciar sesión
             </a>
           </li>
           <li>
-            <a href="/SignUp" className="nav-item signup-button">
+            <a href="/SignUp" className="nav-item signup-button-home">
               Regístrate
             </a>
           </li>

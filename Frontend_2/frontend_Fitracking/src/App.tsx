@@ -18,6 +18,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Asesor_de_salud" element={<Asesor_salud/>} />
         <Route path="/Seguimiento_de_peso" element={<Seguimiento_peso/>} />
+        {/* Planificador de dieta justo aqui */}
       </Routes>
     </Router>
   );

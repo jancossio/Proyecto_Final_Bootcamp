@@ -1,13 +1,16 @@
-/* App.css */
+ App.css
 
-/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Typography */
+/*No funciona, no recuerdo el comando*/
+/* html {
+  @apply scroll-smooth;
+} */
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -21,7 +24,6 @@ p {
   font-size: 14.5px;
 }
 
-/* Buttons */
 .button {
   background-color: #2ecc71;
   color: #fff;
@@ -35,14 +37,12 @@ p {
   background: linear-gradient(45deg, rgb(101, 147, 104), #2ecc71);
 }
 
-/* Forms */
 .input {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-/* Containers */
 .container {
   display: flex;
   justify-content: center;

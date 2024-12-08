@@ -26,9 +26,10 @@
     max-width: 100%; 
     height: auto;
     }
-  .container {
-    max-width: 400px;
-    height: 350px;
+
+  .container-signup {
+    max-width: 500px;
+    /* height: 350px; */
     background: #fbf8fd;
     background: linear-gradient(
       0deg,
@@ -43,19 +44,20 @@
     
   }
   
-  .heading {
+  .heading-signup {
     text-align: center;
     font-weight: 800;
     font-size: 30px;
     color: #2ecc71;
   }
   
-  .form {
+  .signup-form {
     margin-top: 20px;
   }
   
-  .form .input {
-    width: 360px;
+  .signup-form .input {
+    /* width: 360px; */
+    width: 100%;
     background: white;
     border: none;
     padding: 15px 20px;
@@ -65,20 +67,20 @@
     border-inline: 2px solid transparent;
   }
   
-  .form .input::-moz-placeholder {
+  .signup-form .input::-moz-placeholder {
     color: rgb(170, 170, 170);
   }
   
-  .form .input::placeholder {
+  .signup-form .input::placeholder {
     color: rgb(170, 170, 170);
   }
   
-  .form .input:focus {
+  .signup-form .input:focus {
     outline: none;
     border-inline: 2px solid #2ecc71;
   }
   
-  .form .signup-button {
+  .signup-form .signup-button {
     display: block;
     width: 100%;
     font-weight: bold;
@@ -92,13 +94,13 @@
     transition: all 0.2s ease-in-out;
   }
   
-  .form .signup-button:hover {
+  .signup-form .signup-button:hover {
     transform: scale(1.03);
     box-shadow: rgb(101, 147, 104) 0px 23px 10px -20px;
     cursor: pointer;
   }
   
-  .form .signup-button:active {
+  .signup-form .signup-button:active {
     transform: scale(0.95);
     box-shadow: rgb(101, 147, 104) 0px 15px 10px -10px;
   } 
