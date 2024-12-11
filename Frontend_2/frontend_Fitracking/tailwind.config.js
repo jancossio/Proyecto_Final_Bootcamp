@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Include all your source files
-    "./public/index.html",        // If you're using Create React App
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+      textShadow: {
+        'lg': '2px 2px 4px rgba(0, 0, 0, 0.7)',
+      },
+    },
   },
   plugins: [],
-}
-
+};

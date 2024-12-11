@@ -37,7 +37,7 @@ const Home = () => {
               <img src="../public/images/favicon.png" alt="logo" className="logo-home" />
             </a>
           </li>
-          {/* <li>
+          <li>
             <a href="/Asesor_de_salud" className="nav-item">
               Asesor de salud
             </a>
@@ -51,7 +51,7 @@ const Home = () => {
             <a href="/Seguimiento_de_peso" className="nav-item">
               Seguimiento de peso
             </a>
-          </li> */}
+          </li>
           <li>
             <a href="#Quienes-somos" className="nav-item">
               ¿Quiénes somos?
