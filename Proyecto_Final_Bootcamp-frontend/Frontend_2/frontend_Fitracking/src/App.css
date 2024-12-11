@@ -1,0 +1,57 @@
+ App.css
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*No funciona, no recuerdo el comando*/
+/* html {
+  @apply scroll-smooth;
+} */
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  font-size: 14.5px;
+}
+
+.button {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.button-gradient {
+  background: linear-gradient(45deg, rgb(101, 147, 104), #2ecc71);
+}
+
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
