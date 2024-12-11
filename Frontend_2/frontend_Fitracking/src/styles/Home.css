@@ -1,4 +1,4 @@
-/** {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,11 +6,12 @@
 
   html {
     scroll-behavior: smooth;
-  }*/
+  }
 
   #home-page {
     background-color: black;
     font-family: "Poppins", sans-serif;
+    
   }
   
   h1,
@@ -95,7 +96,10 @@
     font-family: inherit;
     margin: 4px;
   }
-  
+  .signup-button-home:hover {
+    background-color: #27ae60;
+    color: #f9f9f9;
+  }
   .login-button-home:hover {
     background-color: #27ae60;
     color: #f9f9f9;
