@@ -58,7 +58,7 @@ const Home = () => {
             </a>
           </li>
           <li>
-          <a href="/Asesor_de_salud" className="nav-item signup-button-home">
+          <a href="/SignUp" className="nav-item signup-button-home">
           Regístrate
           </a>
           </li>

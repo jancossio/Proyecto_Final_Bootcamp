@@ -19,7 +19,8 @@ export default function FormularioSalud({ onSubmit }: Props) {
     consumoAgua: 0, // Cambiado de 0 a null
     horasSueno: 0, // Cambiado de 0 a null
     nivelEstres: 5,
-    alergias: [],
+    alergias: '',
+    condicionesMedicas: [],
     preferenciasDieta: [],
     objetivos: []
   });
@@ -202,7 +203,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Preferencias dietéticas</label>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {opcionesDieta.map(opcion => (
+              {/* {opcionesDieta.map(opcion => (
                 <label key={opcion} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
@@ -218,7 +219,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                   />
                   <span>{opcion}</span>
                 </label>
-              ))}
+              ))} */}
             </div>
           </div>
 

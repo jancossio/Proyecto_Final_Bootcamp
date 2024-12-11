@@ -5,7 +5,7 @@ import { opcionesDieta, objetivosSalud} from '../../constants/healthData';
 interface PreferencesSectionProps {
   formData: HealthFormData;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onCheckboxChange: (category: 'preferenciasDieta' | 'objetivos', value: string) => void;
+  onCheckboxChange: (category: 'preferenciasDieta' | 'objetivos', valor: string) => void;
 }
 
 export const PreferencesSection: React.FC<PreferencesSectionProps> = ({ 
@@ -36,16 +36,16 @@ export const PreferencesSection: React.FC<PreferencesSectionProps> = ({
           </h3>
           <div className="grid grid-cols-3 gap-x-4 gap-y-3"> {/* Added grid layout */}
             {opcionesDieta.map((diet) => (
-              <div key={diet.value} className="flex items-center">
+              <div key={diet.valor} className="flex items-center">
                 <input
                   type="checkbox"
-                  id={`diet-${diet.value}`}
-                  checked={formData.preferenciasDieta.includes(diet.value)}
-                  onChange={() => onCheckboxChange('preferenciasDieta', diet.value)}
+                  id={`diet-${diet.valor}`}
+                  checked={formData.preferenciasDieta.includes(diet.valor)}
+                  onChange={() => onCheckboxChange('preferenciasDieta', diet.valor)}
                   className="h-4 w-4 text-green-500 focus:ring-green-500 border-gray-300 rounded"
                 />
-                <label htmlFor={`diet-${diet.value}`} className="ml-3 text-gray-700">
-                  {diet.label}
+                <label htmlFor={`diet-${diet.valor}`} className="ml-3 text-gray-700">
+                  {diet.etiqueta}
                 </label>
               </div>
             ))}
@@ -58,16 +58,16 @@ export const PreferencesSection: React.FC<PreferencesSectionProps> = ({
           </h3>
           <div className="grid grid-cols-3 gap-x-4 gap-y-3"> {/* Added grid layout */}
             {objetivosSalud.map((goal) => (
-              <div key={goal.value} className="flex items-center">
+              <div key={goal.valor} className="flex items-center">
                 <input
                   type="checkbox"
-                  id={`goal-${goal.value}`}
-                  checked={formData.objetivos.includes(goal.value)}
-                  onChange={() => onCheckboxChange('objetivos', goal.value)}
+                  id={`goal-${goal.valor}`}
+                  checked={formData.objetivos.includes(goal.valor)}
+                  onChange={() => onCheckboxChange('objetivos', goal.valor)}
                   className="h-4 w-4 text-green-500 focus:ring-green-500 border-gray-300 rounded"
                 />
-                <label htmlFor={`goal-${goal.value}`} className="ml-3 text-gray-700">
-                  {goal.label}
+                <label htmlFor={`goal-${goal.valor}`} className="ml-3 text-gray-700">
+                  {goal.etiqueta}
                 </label>
               </div>
             ))}
