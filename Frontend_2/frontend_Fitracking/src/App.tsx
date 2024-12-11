@@ -6,7 +6,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Asesor_salud from './pages/Asesor_salud';
 import Seguimiento_peso from './pages/Seguimiento_peso';
-//import NotFound from './pages/Seguimiento_peso';
+import Planificador_dieta from './pages/Planificador_de_dieta';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Asesor_de_salud" element={<Asesor_salud/>} />
         <Route path="/Seguimiento_de_peso" element={<Seguimiento_peso/>} />
-        {/* Planificador de dieta justo aqui */}
+        <Route path="/Planificador_de_dieta" element={<Planificador_dieta/>} />
       </Routes>
     </Router>
   );
