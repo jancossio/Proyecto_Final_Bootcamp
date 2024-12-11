@@ -7,13 +7,13 @@ export const nivelesActividad = [
   ];
   
   export const opcionesDieta = [
-    'Vegetariano',
-    'Vegano',
-    'Sin Gluten',
-    'Sin Lácteos',
-    'Cetogénica',
-    'Mediterránea',
-    'Ninguna',
+    { value: 'vegetarian', label: 'Vegetariano' },
+    { value: 'vegan', label: 'Vegano' },
+    { value: 'gluten_free', label: 'Sin Gluten' },
+    { value: 'dairy_free', label: 'Sin Lácteos' },
+    { value: 'keto', label: 'Cetogénica' },
+    { value: 'mediterranean', label: 'Mediterránea' },
+    { value: 'none', label: 'Ninguna' }
   ];
   
   export const condicionesMedicas = [
@@ -26,11 +26,11 @@ export const nivelesActividad = [
   ];
   
   export const objetivosSalud = [
-    'Pérdida de Peso',
-    'Ganancia Muscular',
-    'Mejor Descanso',
-    'Reducción de Estrés',
-    'Mejor Condición Física',
-    'Mejor Nutrición',
-    'Control de Enfermedad',
+    { value: 'weight_loss', label: 'Pérdida de Peso' },
+  { value: 'muscle_gain', label: 'Ganancia Muscular' },
+  { value: 'better_rest', label: 'Mejor Descanso' },
+  { value: 'stress_reduction', label: 'Reducción de Estrés' },
+  { value: 'better_fitness', label: 'Mejor Condición Física' },
+  { value: 'better_nutrition', label: 'Mejor Nutrición' },
+  { value: 'disease_control', label: 'Control de Enfermedad' }
   ];

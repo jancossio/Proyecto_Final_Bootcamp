@@ -1,7 +1,7 @@
 import React from 'react';
 import { Activity, Droplets, Moon, Brain, Apple, Heart } from 'lucide-react';
 import { HealthFormData } from '../types/health';
-import { nivelesActividad, opcionesDieta, objetivosSalud } from '../constants/healthData';
+import { nivelesActividad} from '../constants/healthData';
 
 interface Props {
   onSubmit: (datos: HealthFormData) => void;
@@ -9,7 +9,9 @@ interface Props {
 
 export default function FormularioSalud({ onSubmit }: Props) {
   const [datos, setDatos] = React.useState<HealthFormData>({
-    nombre: '',
+    email: '',
+    name: '',
+    password: '',
     edad: 0,
     peso: 0,
     altura: 0,
@@ -20,11 +22,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
     alergias: '',
     preferenciasDieta: [],
     condicionesMedicas: [],
-    objetivos: [],
-    presionArterial: {
-      sistolica: 120,
-      diastolica: 80
-    }
+    objetivos: []
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -46,7 +44,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
               type="text"
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-              value={datos.nombre}
+              value={datos.name}
               onChange={e => setDatos(prev => ({ ...prev, nombre: e.target.value }))}
             />
           </div>
@@ -182,7 +180,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Preferencias dietéticas</label>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {opcionesDieta.map(opcion => (
+              {/* {opcionesDieta.map(opcion => (
                 <label key={opcion} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
@@ -199,14 +197,14 @@ export default function FormularioSalud({ onSubmit }: Props) {
                   />
                   <span className="text-sm text-gray-700">{opcion}</span>
                 </label>
-              ))}
+              ))} */}
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Objetivos de salud</label>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {objetivosSalud.map(objetivo => (
+              {/* {objetivosSalud.map(objetivo => (
                 <label key={objetivo} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
@@ -223,7 +221,7 @@ export default function FormularioSalud({ onSubmit }: Props) {
                   />
                   <span className="text-sm text-gray-700">{objetivo}</span>
                 </label>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
