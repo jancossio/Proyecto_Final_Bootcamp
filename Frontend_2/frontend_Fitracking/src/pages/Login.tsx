@@ -1,11 +1,9 @@
-
 import '../styles/Login.css'; 
 
 const Login = () => {
-  
-    return (
+  return (
     <main id='login-page'>
-         <a href="/">
+      <a href="/">
         <img src="../../public/images/favicon.png" alt="logo" className="login-logo" />
       </a>
       <div className="container-login">
@@ -37,8 +35,7 @@ const Login = () => {
         </form>
       </div>
     </main>
-    );
-  };
-  
-  export default Login
-  
+  );
+};
+
+export default Login;

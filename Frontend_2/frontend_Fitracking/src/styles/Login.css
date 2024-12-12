@@ -1,123 +1,121 @@
-  #login-page {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #cbd7cb; 
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#login-page {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #cbd7cb; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
-  }
-  
-  .login-logo{
-    width: 190px;
-    height: 160px;
-    position: absolute;
-    top: 15%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    max-width: 100%; 
-    height: auto;
-  }
+.login-logo {
+  width: 190px;
+  height: 160px;
+  position: absolute;
+  top: 15%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  max-width: 100%; 
+  height: auto;
+}
 
-  .container-login {
-    max-width: 400px;
-    height: 350px;
-    background: #fbf8fd;
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
-    border-radius: 40px;
-    padding: 25px 35px;
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: rgb(101, 147, 104) 0px 30px 30px -20px;
-    margin: 20px;
-  }
-   
-  .heading-login {
-    text-align: center;
-    font-weight: 800;
-    font-size: 30px;
-    color: #2ecc71;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  .login-form {
-    margin-top: 20px;
-  }
-  
-  .login-form .input {
-    /* width: 360px; */
-    width: 100%;
-    background: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 20px;
-    margin-top: 15px;
-    box-shadow: #8ba495 0px 10px 10px -5px;
-    border-inline: 2px solid transparent;
-  }
-  
-  .login-form.input::-moz-placeholder {
-    color: rgb(170, 170, 170);
-  }
-  
-  .login-form.input::placeholder {
-    color: rgb(170, 170, 170);
-  }
-  
-  .login-form.input:focus {
-    outline: none;
-    border-inline: 2px solid #2ecc71;
-  }
-  
-  .login-form.forgot-password {
-    display: block;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
+.container-login {
+  max-width: 400px;
+  height: 400px;
+  background: #fbf8fd;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+  border-radius: 40px;
+  padding: 25px 35px;
+  border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgb(101, 147, 104) 0px 30px 30px -20px;
+  margin: 20px;
+}
+ 
+.heading-login {
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  color: #2ecc71;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
-  .login-form.forgot-password a {
-    font-size: 14px;
-    color: #0099ff;
-    text-decoration: none;
-    text-decoration: underline;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  .login-form.signup {
-    display: block;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-  .login-form.signup a {
-    font-size: 14px;
-    color: #0099ff;
-    text-decoration: none;
-    text-decoration: underline;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.login-form {
+  margin-top: 20px;
+}
 
-  }
-  .login-form .login-button {
-    display: block;
-    width: 100%;
-    font-weight: bold;
-    background: linear-gradient(45deg, rgb(101, 147, 104) 0%, #2ecc71 100%);
-    color: white;
-    padding-block: 15px;
-    margin: 20px auto;
-    border-radius: 20px;
-    box-shadow: rgb(101, 147, 104) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .login-form .login-button:hover {
-    transform: scale(1.03);
-    box-shadow: rgb(101, 147, 104) 0px 23px 10px -20px;
-    cursor: pointer;
-  }
-  
-  .login-form .login-button:active {
-    transform: scale(0.95);
-    box-shadow: rgb(101, 147, 104) 0px 15px 10px -10px;
-  }
-  
+.login-form .input {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 15px;
+  box-shadow: #8ba495 0px 10px 10px -5px;
+  border-inline: 2px solid transparent;
+}
+
+.login-form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.login-form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.login-form .input:focus {
+  outline: none;
+  border-inline: 2px solid #2ecc71;
+}
+
+.forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.forgot-password a {
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: underline;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.signup {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: #333;
+}
+
+.signup a {
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: underline;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.login-form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(101, 147, 104) 0%, #2ecc71 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgb(101, 147, 104) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgb(101, 147, 104) 0px 23px 10px -20px;
+  cursor: pointer;
+}
+
+.login-form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgb(101, 147, 104) 0px 15px 10px -10px;
+}
