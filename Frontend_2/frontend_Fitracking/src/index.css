@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-black font-poppins;
-  }
+
 
   h1, h2, h3 {
     @apply font-montserrat;

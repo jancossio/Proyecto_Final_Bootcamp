@@ -1,18 +1,18 @@
-import React from 'react';
+import { Sun, Moon } from 'lucide-react';
 
 interface ThemeToggleProps {
   isDark: boolean;
   onToggle: () => void;
 }
 
-export const ThemeToggle: React.FC<ThemeToggleProps> = ({ isDark, onToggle }) => {
+export const ThemeToggle = ({ isDark, onToggle }: ThemeToggleProps) => {
   return (
-    <button 
+    <button
       onClick={onToggle}
       className="theme-toggle"
-      aria-label="Cambiar tema"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
     >
-      {isDark ? '☀️' : '🌙'}
+      {isDark ? <Sun size={24} /> : <Moon size={24} />}
     </button>
   );
 };
