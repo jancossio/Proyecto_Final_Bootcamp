@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const ThemeToggle = ({ isDark, onToggle }) => {
+interface ThemeToggleProps {
+  isDark: boolean;
+  onToggle: () => void;
+}
+
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({ isDark, onToggle }) => {
   return (
     <button 
       onClick={onToggle}

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
-export const FormularioPeso = ({ alEnviar }) => {
-  const [peso, setPeso] = useState('');
+interface FormularioPesoProps {
+  alEnviar: (peso: number) => void;
+}
 
-  const manejarEnvio = (e) => {
+export const FormularioPeso: React.FC<FormularioPesoProps> = ({ alEnviar }) => {
+  const [peso, setPeso] = useState<string>('');
+
+  const manejarEnvio = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const valorPeso = parseFloat(peso);
     if (!isNaN(valorPeso)) {

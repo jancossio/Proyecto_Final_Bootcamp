@@ -5,10 +5,10 @@
 
 :root.dark-theme {
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1a2f1a;
+  background-color: #1bb01b;
 }
 
-/* :root {
+:root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -19,7 +19,7 @@
   :root.dark-theme {
     color: rgba(255, 255, 255, 0.87);
     background-color: #1a2f1a;
-  }*/
+  }
   
   #seguimiento-peso-page {
     margin: 0;
@@ -30,29 +30,18 @@
     min-height: 100vh;
   }
   
-  /*#root {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }*/
-  
-  /*.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  }*/
   
   .h1-weight-track {
     font-size: 2.5em;
     margin: 0;
     color: #22c55e;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
   
   .theme-toggle {
     padding: 0.5em;
+    width: 60px;
     font-size: 1.5em;
     background: transparent;
     border: 2px solid #22c55e;
@@ -60,6 +49,7 @@
     cursor: pointer;
     transition: all 0.25s;
     line-height: 1;
+    margin-left: 1500px;
   }
   
   .theme-toggle:hover {

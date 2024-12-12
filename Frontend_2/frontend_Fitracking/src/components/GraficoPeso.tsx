@@ -8,7 +8,9 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartOptions,
+  ChartData,
 } from 'chart.js';
 
 ChartJS.register(
@@ -21,18 +23,31 @@ ChartJS.register(
   Legend
 );
 
-export const GraficoPeso = ({ datos }) => {
-  const datosGrafico = {
-    labels: datos.registros.map(registro => 
+interface Registro {
+  fecha: Date;
+  peso: number;
+}
+
+interface Datos {
+  registros: Registro[];
+}
+
+interface GraficoPesoProps {
+  datos: Datos;
+}
+
+export const GraficoPeso: React.FC<GraficoPesoProps> = ({ datos }) => {
+  const datosGrafico: ChartData<'line'> = {
+    labels: datos.registros.map((registro) =>
       registro.fecha.toLocaleDateString('es-ES', {
         day: 'numeric',
-        month: 'short'
+        month: 'short',
       })
     ),
     datasets: [
       {
         label: 'Peso a lo largo del tiempo',
-        data: datos.registros.map(registro => registro.peso),
+        data: datos.registros.map((registro) => registro.peso),
         borderColor: '#22c55e',
         backgroundColor: '#4ade80',
         tension: 0.3,
@@ -45,7 +60,7 @@ export const GraficoPeso = ({ datos }) => {
     ],
   };
 
-  const opciones = {
+  const opciones: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -57,15 +72,15 @@ export const GraficoPeso = ({ datos }) => {
           color: '#22c55e',
           font: {
             size: 14,
-            weight: 'bold'
-          }
+            weight: 'bold',
+          },
         },
         grid: {
-          color: 'rgba(74, 222, 128, 0.1)'
+          color: 'rgba(74, 222, 128, 0.1)',
         },
         ticks: {
-          color: '#22c55e'
-        }
+          color: '#22c55e',
+        },
       },
       x: {
         title: {
@@ -74,15 +89,15 @@ export const GraficoPeso = ({ datos }) => {
           color: '#22c55e',
           font: {
             size: 14,
-            weight: 'bold'
-          }
+            weight: 'bold',
+          },
         },
         grid: {
-          color: 'rgba(74, 222, 128, 0.1)'
+          color: 'rgba(222, 96, 74, 0.1)',
         },
         ticks: {
-          color: '#22c55e'
-        }
+          color: '#22c55e',
+        },
       },
     },
     plugins: {
@@ -93,9 +108,9 @@ export const GraficoPeso = ({ datos }) => {
           color: '#22c55e',
           font: {
             size: 14,
-            weight: 'bold'
-          }
-        }
+            weight: 'bold',
+          },
+        },
       },
       tooltip: {
         backgroundColor: 'rgba(34, 197, 94, 0.9)',
@@ -105,7 +120,7 @@ export const GraficoPeso = ({ datos }) => {
           label: (context) => `Peso: ${context.parsed.y} kg`,
         },
         padding: 12,
-        cornerRadius: 8
+        cornerRadius: 8,
       },
     },
   };

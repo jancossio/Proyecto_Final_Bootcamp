@@ -32,7 +32,7 @@ export const WeightChart: React.FC<WeightChartProps> = ({ data }) => {
     labels: data.entries.map(entry => format(entry.date, 'MM/dd/yyyy')),
     datasets: [
       {
-        label: 'Weight Over Time',
+        label: 'Peso en el tiempo',
         data: data.entries.map(entry => entry.weight),
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1,
@@ -48,13 +48,13 @@ export const WeightChart: React.FC<WeightChartProps> = ({ data }) => {
         beginAtZero: false,
         title: {
           display: true,
-          text: 'Weight (kg)',
+          text: 'Peso (kg)',
         },
       },
       x: {
         title: {
           display: true,
-          text: 'Date',
+          text: 'Fecha',
         },
       },
     },
