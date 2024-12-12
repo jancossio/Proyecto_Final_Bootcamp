@@ -34,7 +34,7 @@ export const WeightChart: React.FC<WeightChartProps> = ({ data }) => {
       {
         label: 'Peso en el tiempo',
         data: data.entries.map(entry => entry.weight),
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(234, 192, 77)',
         tension: 0.1,
         fill: false,
       },

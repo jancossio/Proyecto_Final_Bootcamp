@@ -4,9 +4,9 @@ import { WeightData } from '../types/weight';
 export function useWeightData() {
   const [weightData, setWeightData] = useState<WeightData>({
     entries: [
-      { date: new Date(), weight: 70.5 },
-      { date: new Date(Date.now() - 86400000), weight: 70.2 },
-      { date: new Date(Date.now() - 172800000), weight: 69.8 },
+      { date: new Date(), weight: 0 },
+      { date: new Date(Date.now() - 86400000), weight: 0 },
+      { date: new Date(Date.now() - 172800000), weight: 0 },
     ]
   });
 
