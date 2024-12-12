@@ -1,30 +1,23 @@
 import { useState, useCallback } from 'react';
-import { addMonths } from 'date-fns';
-
-interface Registro {
-  fecha: Date;
-  peso: number;
-}
-
-interface DatosPeso {
-  registros: Registro[];
-}
+import { DatosPeso } from '../types/weight';
+import { obtenerFechaInicial, generarFechaMensual } from '../utilidades/dateUtils';
 
 export function useDatosPeso() {
   const [datosPeso, setDatosPeso] = useState<DatosPeso>({
-    registros: [],
+    registros: []
   });
 
   const agregarRegistro = useCallback((peso: number) => {
-    setDatosPeso((prevDatos) => {
-      const nuevaFecha =
-        prevDatos.registros.length === 0
-          ? new Date(2024, 11, 1)
-          : addMonths(prevDatos.registros[prevDatos.registros.length - 1].fecha, 1);
+    setDatosPeso(prevDatos => {
+      const nuevaFecha = prevDatos.registros.length === 0
+        ? obtenerFechaInicial()
+        : generarFechaMensual(prevDatos.registros[prevDatos.registros.length - 1].fecha);
 
       return {
-        registros: [...prevDatos.registros, { fecha: nuevaFecha, peso }]
-          .sort((a, b) => a.fecha.getTime() - b.fecha.getTime()),
+        registros: [
+          ...prevDatos.registros,
+          { fecha: nuevaFecha, peso }
+        ].sort((a, b) => a.fecha.getTime() - b.fecha.getTime())
       };
     });
   }, []);

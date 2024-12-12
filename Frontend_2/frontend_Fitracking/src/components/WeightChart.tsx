@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,7 +12,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { WeightData } from '../types/weight';
+import { DatosPeso } from '../types/weight';
 
 ChartJS.register(
   CategoryScale,
@@ -23,25 +24,33 @@ ChartJS.register(
   Legend
 );
 
-interface WeightChartProps {
-  data: WeightData;
+interface GraficoPesoProps {
+  datos: DatosPeso;
 }
 
-export const WeightChart: React.FC<WeightChartProps> = ({ data }) => {
-  const chartData = {
-    labels: data.entries.map(entry => format(entry.date, 'MM/dd/yyyy')),
+export const GraficoPeso: React.FC<GraficoPesoProps> = ({ datos }) => {
+  const datosGrafico = {
+    labels: datos.registros.map(registro => 
+      format(registro.fecha, 'MMMM yyyy', { locale: es })
+    ),
     datasets: [
       {
         label: 'Peso en el tiempo',
-        data: data.entries.map(entry => entry.weight),
-        borderColor: 'rgb(234, 192, 77)',
-        tension: 0.1,
-        fill: false,
+        data: datos.registros.map(registro => registro.peso),
+        borderColor: '#22c55e',
+        backgroundColor: 'rgba(34, 197, 94, 0.2)',
+        tension: 0.3,
+        fill: true,
+        pointBackgroundColor: '#22c55e',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 2,
+        pointRadius: 5,
+        pointHoverRadius: 7,
       },
     ],
   };
 
-  const options = {
+  const opciones = {
     responsive: true,
     scales: {
       y: {
@@ -49,20 +58,44 @@ export const WeightChart: React.FC<WeightChartProps> = ({ data }) => {
         title: {
           display: true,
           text: 'Peso (kg)',
+          color: '#22c55e',
         },
+        grid: {
+          color: 'rgba(34, 197, 94, 0.1)',
+        },
+        ticks: {
+          color: '#22c55e',
+        }
       },
       x: {
         title: {
           display: true,
           text: 'Fecha',
+          color: '#22c55e',
         },
+        grid: {
+          color: 'rgba(34, 197, 94, 0.1)',
+        },
+        ticks: {
+          color: '#22c55e',
+        }
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#22c55e',
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(34, 197, 94, 0.8)',
       },
     },
   };
 
   return (
     <div className="chart-container">
-      <Line data={chartData} options={options} />
+      <Line data={datosGrafico} options={opciones} />
     </div>
   );
 };

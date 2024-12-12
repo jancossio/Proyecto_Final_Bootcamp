@@ -1,8 +1,8 @@
 export interface WeightEntry {
-    date: Date;
-    weight: number;
-  }
-  
-  export interface WeightData {
-    entries: WeightEntry[];
-  }
+  fecha: Date;
+  peso: number;
+}
+
+export interface DatosPeso {
+  registros: WeightEntry[];
+}
