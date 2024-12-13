@@ -1,6 +1,13 @@
-import { MapaPorcentajes, Receta } from '../types/tipos';
 import { RECETAS } from '../datos/recetas';
+import { MapaPorcentajes, Receta } from '../types/tipos';
 
+// Función para obtener recetas aleatorias por tipo
+const obtenerRecetaPorTipo = (tipo: 'desayuno' | 'comida' | 'cena'): Receta => {
+  const recetasFiltradas = RECETAS.filter(receta => receta.tipoComida === tipo);
+  return recetasFiltradas[Math.floor(Math.random() * recetasFiltradas.length)];
+};
+
+// Función para calcular la diferencia entre porcentajes nutricionales
 const calcularDiferenciaNutrientes = (
   objetivo: MapaPorcentajes,
   receta: MapaPorcentajes
@@ -11,22 +18,28 @@ const calcularDiferenciaNutrientes = (
   }, 0);
 };
 
+// Generar sugerencias basadas en porcentajes nutricionales
 export const generarSugerencias = (porcentajes: MapaPorcentajes): Receta[] => {
-  // Ordenar recetas por similitud con los porcentajes objetivo
+  // Ordenar las recetas por similitud con los porcentajes objetivo
   const recetasOrdenadas = [...RECETAS].sort((a, b) => {
     const diferenciaA = calcularDiferenciaNutrientes(porcentajes, a.distribucionNutrientes);
     const diferenciaB = calcularDiferenciaNutrientes(porcentajes, b.distribucionNutrientes);
     return diferenciaA - diferenciaB;
   });
 
-  // Devolver las 2 mejores coincidencias
-  return recetasOrdenadas.slice(0, 2);
+  // Seleccionar las mejores opciones por tipo de comida
+  return [
+    recetasOrdenadas.find(receta => receta.tipoComida === 'desayuno')!,
+    recetasOrdenadas.find(receta => receta.tipoComida === 'comida')!,
+    recetasOrdenadas.find(receta => receta.tipoComida === 'cena')!
+  ];
 };
 
+// Generar sugerencias aleatorias
 export const generarSugerenciasAleatorias = (): Receta[] => {
-  const recetasAleatorias = [...RECETAS]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 2);
-  
-  return recetasAleatorias;
+  return [
+    obtenerRecetaPorTipo('desayuno'),
+    obtenerRecetaPorTipo('comida'),
+    obtenerRecetaPorTipo('cena')
+  ];
 };

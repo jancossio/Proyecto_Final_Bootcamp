@@ -15,7 +15,7 @@ export default function Recomendaciones({ datos }: Props) {
     if (imc < 18.5) {
       resultados.push({
         tipo: 'advertencia',
-        mensaje: 'Tu IMC indica que tienes bajo peso. Cosnsidera consultar a un nutricionista para un plan de alimentación personalizado.',
+        mensaje: 'Tu IMC indica que tienes bajo peso. Considera consultar a un nutricionista para un plan de alimentación personalizado.',
         categoria: 'nutricion'
       });
     } else if (imc >= 25 && imc < 30) {

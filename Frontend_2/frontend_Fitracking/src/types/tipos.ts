@@ -25,6 +25,8 @@ export interface DatosNutrientes {
     tiempoPreparacion: string;
     calorias: number;
     imagen?: string;
+    tipoComida: 'desayuno' | 'comida' | 'cena';
+
   }
   
   export interface PropiedadesDieta {

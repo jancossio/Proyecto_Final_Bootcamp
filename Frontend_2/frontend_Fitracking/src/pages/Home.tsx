@@ -97,9 +97,9 @@ const Home = () => {
         </a>
       </div>
       <div className="containersobrenosotros appear" id="Quienes-somos">
-        <h1 className="montserrat titulos">¿Quiénes somos?</h1>
+        <h1 className="montserrat titulos margen2">¿Quiénes somos?</h1>
         <br />
-        <p>
+        <p className="margen">
           Somos una empresa comprometida con el bienestar integral, ofreciendo
           asesoramiento nutricional, programas personalizados y recursos
           educativos diseñados para ayudar a las personas a alcanzar su mejor
@@ -128,8 +128,9 @@ const Home = () => {
       </div>
 
       <div className="containercontacto appear">
-        <h1 className="titulos">Contáctanos</h1>
+        <h1 className="titulos margen2">Contáctanos</h1>
         <br />
+        <div className="margen">
         <p>
           Si deseas tener un contacto directo con nosotros o bien necesitas
           resolver cualquier duda, puedes comunicarte con nosotros vía los
@@ -145,6 +146,23 @@ const Home = () => {
           <br />
           Domingos cerrado.
         </p>
+        </div>
+        <div className="map-container" id="Contacto">
+      <iframe
+        src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.6167761435297!2d${location.lng}!3d${location.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAwLjQiTiAzwrA0MicxMy43Ilc!5e0!3m2!1ses!2ses!4v1635959876543!5m2!1ses!2ses`}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Ubicación de FitTracking"
+      />
+      <a 
+        href={`https://www.google.com/maps/search/?api=1&query=${location.lat},${location.lng}`}
+        className="map-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir en Google Maps"
+      />
+    </div>
         <ul className="wrapper">
           <li className="icon facebook">
             <a href="https://www.facebook.com" target="_blank">
@@ -202,7 +220,9 @@ const Home = () => {
             </a>
           </li>
         </ul>
+
       </div>
+
       <footer>© Todos los derechos reservados FitTracking</footer>
     </main>
   );

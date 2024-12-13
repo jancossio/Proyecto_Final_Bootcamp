@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-/*No funciona, no recuerdo el comando*/
-/* html {
-  @apply scroll-smooth;
-} */
 
 body {
   font-family: 'Poppins', sans-serif;

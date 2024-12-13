@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';  // Main CSS file for global styles
+import './App.css';  
 import Home from './pages/Home';
 import {Sign_up} from './pages/Signup';
 import Login from './pages/Login';
