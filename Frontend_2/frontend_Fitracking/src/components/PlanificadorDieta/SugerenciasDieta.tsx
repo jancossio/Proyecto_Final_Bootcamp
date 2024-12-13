@@ -33,7 +33,7 @@ export const SugerenciaDieta: React.FC<PropiedadesDieta> = ({ porcentajes }) => 
       {recetasSugeridas.length > 0 && (
         <div className="grid md:grid-cols-2 gap-6">
           {recetasSugeridas.map((receta, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+            <div key={index} className="bg-white p-6 rounded-lg shadow-lg font-serif">
               {receta.imagen && (
                 <img
                   src={receta.imagen}
