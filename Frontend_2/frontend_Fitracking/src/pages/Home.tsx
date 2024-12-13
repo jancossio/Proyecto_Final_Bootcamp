@@ -68,16 +68,6 @@ const Home = () => {
               Resultados teóricos
             </a>
           </li>
-          {/* <li>
-            <a href="/Login" className="nav-item login-button-home">
-              Iniciar sesión
-            </a>
-          </li>
-          <li>
-          <a href="/SignUp" className="nav-item signup-button-home">
-          Regístrate
-          </a>
-          </li> */}
           <li>
             <a href="#Quienes-somos" className="nav-item">
               ¿Quiénes somos?
@@ -97,17 +87,17 @@ const Home = () => {
       />
       <div className="textoportada">FitTracking</div>
       <div className="esloganportada">Nutrición y hábitos saludables</div>
-      <div>
+      <div className="centrar">
         {" "}
         <a href="/Login" className="nav-item login-button-home">
           Iniciar sesión
         </a>
-        <a href="/SignUp" className="nav-item signup-button-home">
+        <a href="/SignUp" className="nav-item signup-button-home ">
           Regístrate
         </a>
       </div>
       <div className="containersobrenosotros appear" id="Quienes-somos">
-        <h1 className="montserrat">¿Quiénes somos?</h1>
+        <h1 className="montserrat titulos">¿Quiénes somos?</h1>
         <br />
         <p>
           Somos una empresa comprometida con el bienestar integral, ofreciendo
@@ -134,40 +124,11 @@ const Home = () => {
           ¡En FitTracking, tu bienestar es nuestra prioridad!
         </p>
         <br />
-        <h1>Nuestros servicios</h1>
-        <br />
-        <p id="Contacto">
-          En FitTracking, ofrecemos una gama de servicios diseñados para
-          ayudarte a alcanzar tus objetivos de salud y bienestar de manera
-          personalizada y efectiva. Nuestro enfoque integral combina
-          asesoramiento, planificación y seguimiento, asegurándonos de que cada
-          paso en tu camino hacia un estilo de vida saludable esté respaldado
-          por expertos. Nuestro servicio de asesor personal te orientará si no
-          tienes claro que objetivos debes marcarte. También trabajaremos
-          contigo para identificar tus necesidades y metas, brindándote
-          orientación profesional sobre nutrición, actividad física y hábitos
-          saludables. Este servicio es ideal para quienes buscan apoyo constante
-          y motivación para mantener un estilo de vida equilibrado. Gracias a
-          nuestro seguimiento de peso podrás monitorizar tus avances. Ofrecemos
-          un seguimiento regular y detallado que incluye análisis de progreso,
-          mediciones personalizadas y ajustes necesarios para garantizar
-          resultados efectivos y sostenibles. Nuestro objetivo no es solo perder
-          peso, sino lograr una composición corporal saludable y mantenerla a
-          largo plazo. Con nuestro planificador de dieta diseñamos planes
-          alimenticios personalizados adaptados a tus necesidades, gustos y
-          objetivos. Ya sea que busques mejorar tu salud, ganar energía, o
-          alcanzar un peso específico, nuestros planificadores de dieta toman en
-          cuenta tu estilo de vida, preferencias y posibles restricciones
-          alimenticias. Nuestros planes no solo son efectivos, sino también
-          fáciles de seguir, ayudándote a disfrutar el proceso. En FitTracking,
-          cada servicio está diseñado para brindarte herramientas prácticas,
-          motivación constante y resultados reales. ¡Estamos aquí para
-          acompañarte en cada paso del camino hacia una vida más saludable!
-        </p>
+
       </div>
 
       <div className="containercontacto appear">
-        <h1>Contáctanos</h1>
+        <h1 className="titulos">Contáctanos</h1>
         <br />
         <p>
           Si deseas tener un contacto directo con nosotros o bien necesitas
@@ -176,7 +137,7 @@ const Home = () => {
           visitarnos a nuestras oficinas físicas para un trato más personal.
           ¡Estamos encantados de ayudarte!
         </p>
-        <h3>Horario:</h3>
+        <h3 className="titulohorario">Horario:</h3>
         <p className="horario">
           Lunes a Viernes de 8h a 14h y de 16h a 20h.
           <br />
