@@ -1,6 +1,7 @@
 import React from 'react';
 import { HealthFormData, Recomendacion } from '../types/health';
 import { AlertCircle, CheckCircle, Info } from 'lucide-react';
+import '../styles/Recomendaciones.css'; 
 
 interface Props {
   datos: HealthFormData;
@@ -15,26 +16,26 @@ export default function Recomendaciones({ datos }: Props) {
     if (imc < 18.5) {
       resultados.push({
         tipo: 'advertencia',
-        mensaje: 'Tu IMC indica que tienes bajo peso. Cosnsidera consultar a un nutricionista para un plan de alimentación personalizado.',
-        categoria: 'nutricion'
+        mensaje: 'Tu IMC indica que tienes bajo peso. Considera consultar a un nutricionista para un plan de alimentación personalizado.',
+        categoria: 'nutricion',
       });
     } else if (imc >= 25 && imc < 30) {
       resultados.push({
         tipo: 'advertencia',
         mensaje: 'Tu IMC indica sobrepeso. Enfócate en una nutrición balanceada y ejercicio regular.',
-        categoria: 'nutricion'
+        categoria: 'nutricion',
       });
     } else if (imc >= 30) {
       resultados.push({
         tipo: 'error',
         mensaje: 'Tu IMC indica obesidad. Te recomendamos consultar a un profesional de la salud.',
-        categoria: 'medico'
+        categoria: 'medico',
       });
     } else {
       resultados.push({
         tipo: 'exito',
         mensaje: '¡Tu IMC está dentro del rango saludable! Mantén un estilo de vida equilibrado.',
-        categoria: 'nutricion'
+        categoria: 'nutricion',
       });
     }
 
@@ -43,13 +44,13 @@ export default function Recomendaciones({ datos }: Props) {
       resultados.push({
         tipo: 'advertencia',
         mensaje: `Estás bebiendo ${datos.consumoAgua} vasos de agua al día. Intenta aumentar a al menos 8 vasos.`,
-        categoria: 'nutricion'
+        categoria: 'nutricion',
       });
     } else {
       resultados.push({
         tipo: 'exito',
         mensaje: '¡Excelente trabajo manteniéndose hidratado!',
-        categoria: 'nutricion'
+        categoria: 'nutricion',
       });
     }
 
@@ -58,13 +59,13 @@ export default function Recomendaciones({ datos }: Props) {
       resultados.push({
         tipo: 'advertencia',
         mensaje: 'Podrías no estar durmiendo lo suficiente. Intenta dormir entre 7-9 horas por noche.',
-        categoria: 'estilo-vida'
+        categoria: 'estilo-vida',
       });
     } else if (datos.horasSueno > 9) {
       resultados.push({
         tipo: 'info',
         mensaje: 'Estás durmiendo más que el promedio. Si te sientes inusualmente cansado, considera consultar a un médico.',
-        categoria: 'medico'
+        categoria: 'medico',
       });
     }
 
@@ -73,7 +74,7 @@ export default function Recomendaciones({ datos }: Props) {
       resultados.push({
         tipo: 'advertencia',
         mensaje: 'Tus niveles de estrés parecen ser altos. Considera técnicas de manejo del estrés o consultar a un profesional.',
-        categoria: 'mental'
+        categoria: 'mental',
       });
     }
 
@@ -82,16 +83,16 @@ export default function Recomendaciones({ datos }: Props) {
       resultados.push({
         tipo: 'advertencia',
         mensaje: '¡Intenta incorporar más actividad física en tu rutina diaria! Puedes comenzar con caminatas cortas.',
-        categoria: 'ejercicio'
+        categoria: 'ejercicio',
       });
     }
 
-    // Alergias y preferencias dietéticas
+    // Alergias and dietary preferences
     if (datos.alergias && datos.alergias.toLowerCase() !== 'ninguna') {
       resultados.push({
         tipo: 'info',
         mensaje: `Recuerda siempre revisar las etiquetas de los alimentos debido a tus alergias: ${datos.alergias}`,
-        categoria: 'nutricion'
+        categoria: 'nutricion',
       });
     }
 
@@ -101,16 +102,16 @@ export default function Recomendaciones({ datos }: Props) {
   const getIcono = (tipo: Recomendacion['tipo']) => {
     switch (tipo) {
       case 'exito':
-        return <CheckCircle className="w-5 h-5 text-green-500" />;
+        return <CheckCircle className="text-green-500 w-5 h-5" />;
       case 'advertencia':
-        return <AlertCircle className="w-5 h-5 text-yellow-500" />;
+        return <AlertCircle className="text-yellow-500 w-5 h-5" />;
       case 'error':
-        return <AlertCircle className="w-5 h-5 text-red-500" />;
+        return <AlertCircle className="text-red-500 w-5 h-5" />;
       default:
-        return <Info className="w-5 h-5 text-green-500" />;
+        return <Info className="text-green-500 w-5 h-5" />;
     }
   };
-
+  
   const getColorFondo = (tipo: Recomendacion['tipo']) => {
     switch (tipo) {
       case 'exito':
@@ -123,10 +124,12 @@ export default function Recomendaciones({ datos }: Props) {
         return 'bg-green-50';
     }
   };
-
+  
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-bold mb-4">Recomendaciones de salud para {datos.nombre}</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Recomendaciones de salud para {datos.nombre}
+      </h2>
       
       {recomendaciones.map((rec, index) => (
         <div

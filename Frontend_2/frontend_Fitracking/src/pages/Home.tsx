@@ -38,8 +38,8 @@ const Home = () => {
             </a>
           </li>
           <li>
-            <a href="/Asesor_de_salud" className="nav-item">
-              Asesor de salud
+            <a href="/Recomendacion" className="nav-item">
+              Recomendacion
             </a>
           </li>
           <li>

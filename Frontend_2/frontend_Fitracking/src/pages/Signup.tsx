@@ -18,7 +18,7 @@ const initialFormData: HealthFormData = {
   nivelEstres: 0,
   alergias: '',
   preferenciasDieta: [],
-  condicionesMedicas: [],
+  //condicionesMedicas: [],
   objetivos: [],
 };
 
@@ -144,3 +144,4 @@ export const Sign_up: React.FC = () => {
     </div>
   );
 };
+export default Sign_up;

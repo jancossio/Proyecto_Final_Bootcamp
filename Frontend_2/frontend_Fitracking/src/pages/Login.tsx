@@ -1,36 +1,47 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/useUserContext";
 import "../styles/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); // Hook para navegación
+  const { setUser } = useUserContext(); // Accede a `setUser` para guardar el usuario
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default form submission
-
+    e.preventDefault();
+  
     try {
       const response = await fetch("http://localhost:8080/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",  // Include cookies in the request
         body: JSON.stringify({ email, password }),
+        
       });
-
-      if (response.ok) {
-        // Navigate to the home page on success
-        navigate("/");
-      } else {
-        console.error("Login failed"); // Log the error if needed
+  
+      if (!response.ok) {
+        // Handle non-JSON error responses
+        const errorText = await response.text();
+        throw new Error(errorText || "Login failed");
       }
+  
+      const userData = await response.json(); // Ensure this contains `id` and `name`
+      console.log("API response:", userData); // Check API response in the browser console
+    
+      setUser({ id: userData.id, name: userData.name }); // Set the user context
+      console.log("User set in context:", { id: userData.id, name: userData.name });
+    
+      navigate("/UserHome");
     } catch (err) {
-      console.error("Network error:", err);
+      console.error("Login error:", err);
+      alert("Login failed. Please try again.");
     }
   };
-
+  
   return (
     <main id="login-page">
       <a href="/">
