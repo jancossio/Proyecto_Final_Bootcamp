@@ -8,7 +8,7 @@ import Asesor_salud from './pages/Asesor_salud';
 import Seguimiento_peso from './pages/Seguimiento_peso';
 import Planificador_dieta from './pages/Planificador_de_dieta';
 // import Planificador_ejercicio from './pages/Planificador_ejercicio';
-// import Recomendaciones from './pages/Recomendaciones';
+import Recomendaciones from './pages/Recomendaciones';
 // import Resultados from './pages/Resultados';
 
 function App() {
