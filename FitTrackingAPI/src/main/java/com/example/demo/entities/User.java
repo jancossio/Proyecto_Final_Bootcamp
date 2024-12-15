@@ -10,7 +10,7 @@ import org.hibernate.annotations.Type;
 import java.util.List;
 
 @Entity
-@Table(name = "USUARIS")
+@Table(name = "USUARIS") // Nombre de la tabla en la base de datos
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,45 +21,45 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "EMAIL", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "CONTRA")
+    @Column(name = "CONTRA", nullable = false) // Cambiado para coincidir con la base de datos
     private String password;
 
-    @Column(name = "NOM")
-    private String nom;
+    @Column(name = "NOM") // Cambiado para coincidir con la base de datos
+    private String nombre;
 
-    @Column(name = "EDAT")
-    private Integer edat;
+    @Column(name = "EDAT") // Cambiado para coincidir con la base de datos
+    private Integer edad;
 
-    @Column(name = "PES")
-    private Float pes;
+    @Column(name = "PES") // Cambiado para coincidir con la base de datos
+    private Float peso;
 
-    @Column(name = "ALTURA")
+    @Column(name = "ALTURA") // Sin cambios, coincide con la base de datos
     private Float altura;
 
-    @Column(name = "ACTIVITATFISICA")
-    private String activitatFisica;
+    @Column(name = "ACTIVITATFISICA") // Cambiado para coincidir con la base de datos
+    private String nivelActividad;
 
-    @Column(name = "CONSUMAIGUA")
-    private String consumAigua;
+    @Column(name = "CONSUMAIGUA") // Cambiado para coincidir con la base de datos
+    private String consumoAgua;
 
-    @Column(name = "HORASSUENO")
-    private Float horesSueno;
+    @Column(name = "HORASSUENO") // Cambiado para coincidir con la base de datos
+    private Float horasSueno;
 
-    @Column(name = "NIVELESTRES")
-    private Float nivellEstres;
+    @Column(name = "NIVELESTRES") // Cambiado para coincidir con la base de datos
+    private Float nivelEstres;
 
-    @Column(name = "ALERGIA", columnDefinition = "JSON")
+    @Column(name = "ALERGIAS", columnDefinition = "JSON") // Sin cambios, coincide con la base de datos
     @Type(value = JsonType.class)
-    private List<String> alergia;
+    private List<String> alergias;
 
-    @Column(name = "PREFERENCIESDIETA", columnDefinition = "JSON")
+    @Column(name = "PREFERENCIESDIETA", columnDefinition = "JSON") // Sin cambios, coincide con la base de datos
     @Type(value = JsonType.class)
-    private List<String> preferenciesDieta;
+    private List<String> preferenciasDieta;
 
-    @Column(name = "OBJECTIUS", columnDefinition = "JSON")
+    @Column(name = "OBJECTIUS", columnDefinition = "JSON") // Cambiado para coincidir con la base de datos
     @Type(value = JsonType.class)
-    private List<String> objectius;
+    private List<String> objetivos;
 }

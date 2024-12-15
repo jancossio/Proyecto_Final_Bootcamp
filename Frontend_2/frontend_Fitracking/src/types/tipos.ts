@@ -1,10 +1,3 @@
-export interface DatosNutrientes {
-    nombre: string;
-    porcentaje: number;
-    color: string;
-  }
-  
-  export type MapaPorcentajes = Record<string, number>;
   
   export interface PropiedadesGrafico {
     datos: MapaPorcentajes;
@@ -25,6 +18,8 @@ export interface DatosNutrientes {
     tiempoPreparacion: string;
     calorias: number;
     imagen?: string;
+    tipoComida: 'desayuno' | 'comida' | 'cena';
+
   }
   
   export interface PropiedadesDieta {

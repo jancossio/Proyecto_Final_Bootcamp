@@ -1,0 +1,71 @@
+/* Contenedor principal */
+.recommendations-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centrado en la pantalla completa */
+  background-color: #f8f9fa; /* Color de fondo suave */
+}
+
+/* Tarjeta centrada */
+.recommendations-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  width: 90%;
+  max-width: 600px; /* Máximo ancho */
+  text-align: center;
+}
+
+/* Título */
+.recommendations-title {
+  font-size: 2rem;
+  color: #2c7a7b;
+  margin-bottom: 20px;
+}
+
+/* Lista de recomendaciones */
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Cada recomendación */
+.recommendation {
+  display: flex;
+  align-items: center;
+  background-color: #f0fdf4; /* Fondo general */
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos */
+.icon-success {
+  color: #38a169; /* Verde para éxito */
+  margin-right: 10px;
+}
+
+.icon-warning {
+  color: #d69e2e; /* Amarillo para advertencia */
+  margin-right: 10px;
+}
+
+.icon-error {
+  color: #e53e3e; /* Rojo para errores */
+  margin-right: 10px;
+}
+
+.icon-info {
+  color: #3182ce; /* Azul para información */
+  margin-right: 10px;
+}
+
+/* Texto de cada recomendación */
+.recommendation-text {
+  color: #2d3748;
+  font-size: 1rem;
+  text-align: left;
+}

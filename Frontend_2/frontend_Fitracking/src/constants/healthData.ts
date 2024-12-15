@@ -16,14 +16,14 @@ export const nivelesActividad = [
     { valor: 'none', etiqueta: 'Ninguna' }
   ];
   
-  export const condicionesMedicas = [
+  /*export const condicionesMedicas = [
     'Diabetes',
     'Hipertensión',
     'Enfermedad Cardíaca',
     'Asma',
     'Artritis',
     'Ninguna',
-  ];
+  ];*/
   
   export const objetivosSalud = [
     { valor: 'weight_loss', etiqueta: 'Pérdida de Peso' },

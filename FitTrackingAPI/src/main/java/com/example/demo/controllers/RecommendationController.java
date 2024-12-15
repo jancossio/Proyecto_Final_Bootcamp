@@ -1,58 +1,51 @@
 package com.example.demo.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.entities.Recommendation;
-import com.example.demo.services.RecomendationService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.example.demo.dto.UserRecommendationDTO;
+import com.example.demo.entities.User;
+import com.example.demo.services.UserService;
 
 @RestController
-@RequestMapping("/recommendations")
+@RequestMapping("/users")
 public class RecommendationController {
 
     @Autowired
-    private RecomendationService recommendationService;
-    
-    @RequestMapping(value = "all/{id}",method = RequestMethod.GET)
-	public List<Recommendation> getRecommendationsByUser(@PathVariable Long id){
+    private UserService userService;
 
-		return recommendationService.findRecommendationsByUser(id);
-	}
-	
-	@RequestMapping(value = "/{id}",  method = RequestMethod.GET)
-	public Recommendation getRecommendation(@PathVariable Long id){
+    /**
+     * Fetch recommendations for a specific user by ID.
+     * @param id ID of the user.
+     * @return UserRecommendationDTO wrapped in ResponseEntity.
+     */
+    @GetMapping("/{id}/recomendacion")
+    public ResponseEntity<UserRecommendationDTO> getUserRecommendationsById(@PathVariable Long id) {
+        // Fetch user by ID
+        User user = userService.findUser(id);
 
-		return recommendationService.findRecomendation(id);
-	}
-	
-	@RequestMapping(value = "/add",  method={RequestMethod.POST, RequestMethod.PUT})
-	public Recommendation addRecommendation(@RequestBody Recommendation recomendation) {
+        // Return 404 if user not found
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
 
-		return recommendationService.saveRecomendation(recomendation);
-	}
-	
-	@RequestMapping(value = "/delete/{id}",  method = RequestMethod.DELETE)
+        // Map the User entity to UserRecommendationDTO
+        UserRecommendationDTO dto = new UserRecommendationDTO(
+                user.getEmail(),
+                user.getNombre(),
+                user.getPassword(),
+                user.getEdad(),
+                user.getPeso(),
+                user.getAltura(),
+                user.getNivelActividad(),
+                Integer.parseInt(user.getConsumoAgua()), // Convert String to Integer if needed
+                user.getHorasSueno(),
+                user.getNivelEstres(),
+                user.getAlergias(),
+                user.getPreferenciasDieta(),
+                user.getObjetivos()
+        );
 
-	public void deleteRecommendation(@PathVariable Long id) {
-
-		recommendationService.deleteRecomendation(id);
-	}
-	
-	@RequestMapping(value = "/update/{id}",  method = RequestMethod.PATCH)
-	public Recommendation updateRecommendation(@PathVariable Long id, @RequestBody Recommendation recommendation) {
-		
-		Recommendation recommendationUpdated = recommendationService.findRecomendation(id);
-
-		recommendationUpdated.setDescription(recommendation.getDescription());
-		recommendationUpdated.setPhysicalActivityReference(recommendation.getPhysicalActivityReference());
-		recommendationUpdated.setWeigthReference(recommendation.getWeigthReference());
-		
-		return recommendationUpdated;
-	}
+        return ResponseEntity.ok(dto);
+    }
 }

@@ -1,33 +1,24 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth"; // Updated to use your custom `useAuth` hook
 import "../styles/Login.css";
 
-const Login = () => {
+const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
+  const { login } = useAuth(); // Access `login` function from the AuthProvider
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        // Navigate to the home page on success
-        navigate("/");
-      } else {
-        console.error("Login failed"); // Log the error if needed
-      }
-    } catch (err) {
-      console.error("Network error:", err);
+      await login(email, password); // Call the `login` function from the AuthProvider
+      console.log("Login successful");
+      navigate("/UserHome"); // Navigate to UserHome on successful login
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Login failed. Please check your email and password.");
     }
   };
 

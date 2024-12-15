@@ -1,26 +1,61 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';  // Main CSS file for global styles
-import Home from './pages/Home';
-import {Sign_up} from './pages/Signup';
-import Login from './pages/Login';
-import Asesor_salud from './pages/Asesor_salud';
-import Seguimiento_peso from './pages/Seguimiento_peso';
-import Planificador_dieta from './pages/Planificador_de_dieta';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider"; // AuthProvider for managing user state
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
+import UserHome from "./pages/UserHome";
+import Recomendacion from "./pages/Recomendacion";
+import PlanificadorDieta from "./pages/Planificador_de_dieta";
+import SeguimientoPeso from "./pages/Seguimiento_peso";
+import PrivateRoute from "./components/PrivateRoute"; // PrivateRoute component for protected routes
 
 function App() {
-
   return (
-    <Router> {/* Wrap your Routes with BrowserRouter */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/SignUp" element={<Sign_up />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Asesor_de_salud" element={<Asesor_salud/>} />
-        <Route path="/Seguimiento_de_peso" element={<Seguimiento_peso/>} />
-        <Route path="/Planificador_de_dieta" element={<Planificador_dieta/>} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+
+          {/* Protected Routes */}
+          <Route
+            path="/UserHome"
+            element={
+              <PrivateRoute>
+                <UserHome />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/Recomendacion"
+            element={
+              <PrivateRoute>
+                <Recomendacion />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/Planificador_de_dieta"
+            element={
+              <PrivateRoute>
+                <PlanificadorDieta />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/Seguimiento_de_peso"
+            element={
+              <PrivateRoute>
+                <SeguimientoPeso />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

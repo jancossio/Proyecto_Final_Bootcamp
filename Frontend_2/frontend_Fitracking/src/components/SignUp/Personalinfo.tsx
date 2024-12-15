@@ -27,10 +27,10 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({ formDa
       <div className="mb-6">
         <input
           type="text"
-          id="name"
-          name="name"
+          id="nombre"
+          name="nombre"
           placeholder="Nombre"
-          value={formData.name}
+          value={formData.nombre}
           onChange={onChange}
           className="w-full px-4 py-3 rounded-full border-gray-200 focus:border-green-500 focus:ring-green-500"
           required

@@ -9,9 +9,8 @@ export interface HealthFormData {
     consumoAgua: number;
     horasSueno: number;
     nivelEstres: number;
-    alergias: string;
+    alergias: string[];
     preferenciasDieta: string[];
-    condicionesMedicas: string[];
     objetivos: string[];
   }
   
