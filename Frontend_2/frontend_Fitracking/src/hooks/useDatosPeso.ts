@@ -1,26 +1,36 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { DatosPeso } from '../types/weight';
-import { obtenerFechaInicial, generarFechaMensual } from '../utilidades/dateUtils';
 
 export function useDatosPeso() {
-  const [datosPeso, setDatosPeso] = useState<DatosPeso>({
-    registros: []
+  const [datosPeso, setDatosPeso] = useState<DatosPeso>(() => {
+    const datosGuardados = localStorage.getItem('datosPeso');
+    return datosGuardados
+      ? JSON.parse(datosGuardados, (key, value) =>
+          key === 'fecha' ? new Date(value) : value // Parsear fechas correctamente
+        )
+      : { registros: [] };
   });
 
-  const agregarRegistro = useCallback((peso: number) => {
-    setDatosPeso(prevDatos => {
-      const nuevaFecha = prevDatos.registros.length === 0
-        ? obtenerFechaInicial()
-        : generarFechaMensual(prevDatos.registros[prevDatos.registros.length - 1].fecha);
+  // Guardar en localStorage al actualizar
+  useEffect(() => {
+    localStorage.setItem('datosPeso', JSON.stringify(datosPeso));
+  }, [datosPeso]);
 
-      return {
-        registros: [
-          ...prevDatos.registros,
-          { fecha: nuevaFecha, peso }
-        ].sort((a, b) => a.fecha.getTime() - b.fecha.getTime())
-      };
-    });
+  // Agregar un nuevo registro
+  const agregarRegistro = useCallback((peso: number, fecha: Date) => {
+    setDatosPeso(prevDatos => ({
+      registros: [
+        ...prevDatos.registros,
+        { fecha, peso }
+      ].sort((a, b) => a.fecha.getTime() - b.fecha.getTime()),
+    }));
   }, []);
 
-  return { datosPeso, agregarRegistro };
+  // Reinicializar los datos
+  const reinicializarDatos = useCallback(() => {
+    setDatosPeso({ registros: [] }); // Vaciar el estado
+    localStorage.removeItem('datosPeso'); // Limpiar localStorage
+  }, []);
+
+  return { datosPeso, agregarRegistro, reinicializarDatos };
 }

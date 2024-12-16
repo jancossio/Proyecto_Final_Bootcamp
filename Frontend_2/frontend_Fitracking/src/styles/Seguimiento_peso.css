@@ -138,3 +138,28 @@ button[type="submit"]:active {
   background-color: rgba(26, 47, 26, 0.8);
   border-color: rgba(255, 255, 255, 0.1);
 }
+.reset-button {
+  display: inline-block; /* Tamaño ajustado al texto */
+  margin: 20px auto; /* Espaciado vertical */
+  padding: 6px 12px; /* Tamaño del botón */
+  color: #22c55e; /* Color del texto */
+  background-color: transparent; /* Fondo transparente */
+  border: 2px solid #22c55e; /* Borde del botón */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño del texto */
+  font-weight: 500; /* Grosor del texto */
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+.reset-button:hover {
+  background-color: #22c55e; /* Fondo verde en hover */
+  color: white; /* Texto blanco */
+  transform: scale(1.05); /* Pequeño efecto de aumento */
+}
+
+.reset-button:active {
+  background-color: #16a34a; /* Fondo más oscuro al hacer clic */
+  transform: scale(0.95); /* Efecto de "presionado" */
+}

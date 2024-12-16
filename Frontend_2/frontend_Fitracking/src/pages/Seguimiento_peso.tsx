@@ -9,15 +9,23 @@ import '../styles/Seguimiento_peso.css';
 import '../styles/theme.css';
 
 const SeguimientoPeso = () => {
-  const { datosPeso, agregarRegistro } = useDatosPeso();
+  const { datosPeso, agregarRegistro, reinicializarDatos } = useDatosPeso();
   const { isDark, toggleTheme } = useTheme();
-  
+
   return (
     <main id="seguimiento-peso-page">
       <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
       <h1 className='h1-weight-track'>Seguimiento de peso</h1>
-      <FormularioPeso onSubmit={agregarRegistro} />
+      <FormularioPeso
+        onSubmit={(peso, fecha) => agregarRegistro(peso, fecha)}
+      />
       <GraficoPeso datos={datosPeso} />
+      <button
+        onClick={reinicializarDatos}
+        className="reset-button"
+      >
+        Reinicializar Gráfica
+      </button>
     </main>
   );
 };

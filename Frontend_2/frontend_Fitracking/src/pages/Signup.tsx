@@ -148,7 +148,7 @@
               </button>
               <p className="text-center mt-4 text-gray-600">
                 ¿Ya tienes cuenta?{' '}
-                <a href="#" className="text-green-500
+                <a href="/Login" className="text-green-500
   hover:text-green-600"> Inicia sesión </a> </p> </div> </form> </div> </div> ); };
   
   export default Sign_up;
