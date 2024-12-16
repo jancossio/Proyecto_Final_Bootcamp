@@ -8,6 +8,7 @@ import UserHome from "./pages/UserHome";
 import Recomendacion from "./pages/Recomendacion";
 import PlanificadorDieta from "./pages/Planificador_de_dieta";
 import SeguimientoPeso from "./pages/Seguimiento_peso";
+import Testimonios from "./pages/Testimonios";
 import PrivateRoute from "./components/PrivateRoute"; // PrivateRoute component for protected routes
 
 function App() {
@@ -50,6 +51,14 @@ function App() {
             element={
               <PrivateRoute>
                 <SeguimientoPeso />
+              </PrivateRoute>
+            }
+          />
+                    <Route
+            path="/Testimonios"
+            element={
+              <PrivateRoute>
+                <Testimonios />
               </PrivateRoute>
             }
           />

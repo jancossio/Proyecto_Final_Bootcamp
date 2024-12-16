@@ -67,7 +67,7 @@ const Home = () => {
 
       <nav className="navbar">
 
-        <ul className="nav-list gap-10">
+        <ul className="nav-list gap-9">
 
           <li>
 
@@ -126,7 +126,15 @@ const Home = () => {
             </a>
 
           </li>
+          <li>
 
+            <a href="/Login" className="nav-item">
+
+              Testimonios
+
+            </a>
+
+          </li>
 
 
           <li>

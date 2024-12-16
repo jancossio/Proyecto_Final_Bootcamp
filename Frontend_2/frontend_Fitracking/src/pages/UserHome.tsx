@@ -52,6 +52,11 @@ const UserHome: React.FC = () => {
               Seguimiento de peso
             </a>
           </li>
+          <a href="/Testimonios" className="nav-item">
+
+Testimonios
+
+</a>
           <button
             className="flex items-center space-x-2 bg-orange-400 hover:bg-orange-600	 text-white px-4 py-2 rounded-md transition-colors font-sans font-semibold"
             onClick={() => (window.location.href = "/")}
