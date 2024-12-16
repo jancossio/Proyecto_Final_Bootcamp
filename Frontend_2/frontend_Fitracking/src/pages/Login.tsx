@@ -56,6 +56,7 @@ const Login: React.FC = () => {
           />
           <input className="login-button" type="submit" value="Iniciar sesión" />
         </form>
+        No tienes cuenta? <a href="/Signup" className="link">Regístrate aquí</a>
       </div>
     </main>
   );

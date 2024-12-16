@@ -27,7 +27,7 @@ const UserHome: React.FC = () => {
   return (
     <main id="home-page">
       <nav className="navbar">
-        <ul className="nav-list">
+        <ul className="nav-list gap-10">
           <li>
             <a href="">
               <img

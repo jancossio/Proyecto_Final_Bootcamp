@@ -23,7 +23,7 @@
 
   .container-login {
     max-width: 400px;
-    height: 350px;
+    height: 380px;
     background: #fbf8fd;
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
     border-radius: 40px;
@@ -95,6 +95,13 @@
     text-decoration: underline;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+  }
+  .link{
+    font-size: 14px;
+    color: #0099ff;
+    text-decoration: none;
+    text-decoration: underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   .login-form .login-button {
     display: block;

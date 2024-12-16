@@ -79,7 +79,17 @@
     outline: none;
     border-inline: 2px solid #2ecc71;
   }
-  
+  .link{
+    font-size: 14px;
+    color: #0099ff;
+    text-decoration: none;
+    text-decoration: underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .letraverde{
+    color: #15803d;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
   .signup-form .signup-button {
     display: block;
     width: 100%;
