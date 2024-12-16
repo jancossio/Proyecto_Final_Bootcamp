@@ -1,7 +1,7 @@
-import { useEffect } from 'react'; // Only import what you use
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
-import '../styles/Home.css';
+import { useEffect } from "react"; // Only import what you use
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import "../styles/Home.css";
 
 const UserHome: React.FC = () => {
   const { user, isLoading } = useAuth(); // Access user and loading state
@@ -52,6 +52,12 @@ const UserHome: React.FC = () => {
               Seguimiento de peso
             </a>
           </li>
+          <button
+            className="flex items-center space-x-2 bg-orange-400 hover:bg-orange-600	 text-white px-4 py-2 rounded-md transition-colors font-sans font-semibold"
+            onClick={() => (window.location.href = "/")}
+          >
+            <span>Cerrar sesión</span>
+          </button>
         </ul>
       </nav>
       <img
@@ -61,7 +67,6 @@ const UserHome: React.FC = () => {
       />
       <div className="textoportada">FitTracking</div>
       <div className="esloganportada">Nutrición y hábitos saludables</div>
-      <footer>© Todos los derechos reservados FitTracking</footer>
     </main>
   );
 };
