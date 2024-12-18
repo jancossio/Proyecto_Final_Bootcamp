@@ -27,6 +27,35 @@ export interface DatosNutrientes {
     imagen?: string;
   }
   
+  export interface UserRoutineExerciseInfo {
+    id: number;
+    userId: number;
+    day: RoutineDayWeekInfo;
+    exercise: ExerciseInfo | null;
+    focus: string;
+    completed: boolean;
+  }
+  
+  export interface RoutineDayWeekInfo {
+    id: number;
+    name: string;
+  }
+  
+  export interface ExerciseInfo {
+    id: number;
+    name: string;
+    description: string;
+    repetitions: string;
+    duration: number;
+    rest: number;
+    difficulty: string;
+    category: string;
+    image: string;
+  }
+  
+  
+  
+
   export interface PropiedadesDieta {
     porcentajes: MapaPorcentajes;
   }
