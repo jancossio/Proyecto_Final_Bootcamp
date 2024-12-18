@@ -7,6 +7,7 @@ import SignUp from "./pages/Signup";
 import UserHome from "./pages/UserHome";
 import Recomendacion from "./pages/Recomendacion";
 import PlanificadorDieta from "./pages/Planificador_de_dieta";
+import PlanificadorDeEjercicio from "./pages/Planificador_de_ejercicio";
 import SeguimientoPeso from "./pages/Seguimiento_peso";
 import Testimonios from "./pages/Testimonios";
 import PrivateRoute from "./components/PrivateRoute"; // PrivateRoute component for protected routes
@@ -54,11 +55,19 @@ function App() {
               </PrivateRoute>
             }
           />
-                    <Route
+          <Route
             path="/Testimonios"
             element={
               <PrivateRoute>
                 <Testimonios />
+              </PrivateRoute>
+            }
+          />
+          <Route 
+            path="/Planificador_de_ejercicio" 
+            element={
+              <PrivateRoute>
+                <PlanificadorDeEjercicio />
               </PrivateRoute>
             }
           />

@@ -1,4 +1,5 @@
-  
+export type MapaPorcentajes = Record<string, number>;
+
   export interface PropiedadesGrafico {
     datos: MapaPorcentajes;
   }
@@ -24,4 +25,30 @@
   
   export interface PropiedadesDieta {
     porcentajes: MapaPorcentajes;
+  }
+
+  export interface UserRoutineExerciseInfo {
+    id: number;
+    userId: number;
+    day: RoutineDayWeekInfo;
+    exercise: ExerciseInfo | null;
+    focus: string;
+    completed: boolean;
+  }
+  
+  export interface RoutineDayWeekInfo {
+    id: number;
+    name: string;
+  }
+  
+  export interface ExerciseInfo {
+    id: number;
+    name: string;
+    description: string;
+    repetitions: string;
+    duration: number;
+    rest: number;
+    difficulty: string;
+    category: string;
+    image: string;
   }

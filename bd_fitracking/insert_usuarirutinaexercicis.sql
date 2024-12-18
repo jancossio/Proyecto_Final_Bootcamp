@@ -1,0 +1,2 @@
+INSERT INTO USUARI_RUTINA_EXERCICIS (usuari_id, rutina_dia_id, exercici_id, exercici_completat, objectiu_exercici) VALUES
+(1, 1, 2, false, 'tren lateral'), (1, 1, 3, false, 'tren frontal'), (1, 1, 4, false, 'tren frontal');

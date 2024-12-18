@@ -43,6 +43,11 @@ const UserHome: React.FC = () => {
             </a>
           </li>
           <li>
+            <a href="/Planificador_de_ejercicio" className="nav-item">
+              Planificador de ejercicios
+            </a>
+          </li>
+          <li>
             <a href="/Planificador_de_dieta" className="nav-item">
               Planificador de dieta
             </a>
