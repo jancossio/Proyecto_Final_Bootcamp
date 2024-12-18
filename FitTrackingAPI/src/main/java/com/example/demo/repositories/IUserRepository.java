@@ -9,4 +9,6 @@
 	@Repository
 	public interface IUserRepository extends JpaRepository<User, Long> {
 	    User findByEmail(String email);
+	    boolean existsByEmail(String email); // Método personalizado
+	    
 	}

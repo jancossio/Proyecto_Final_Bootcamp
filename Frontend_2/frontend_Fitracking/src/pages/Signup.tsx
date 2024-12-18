@@ -4,6 +4,7 @@ import { LifestyleSection } from "../components/SignUp/EstiloVida";
 import { PreferencesSection } from "../components/SignUp/Preferencias";
 import { HealthFormData } from "../types/health";
 import "../styles/Signup.css";
+import { useNavigate } from "react-router-dom";
 
 const initialFormData: HealthFormData = {
   email: "",
@@ -26,6 +27,7 @@ export const Sign_up: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -71,7 +73,7 @@ export const Sign_up: React.FC = () => {
     setIsSubmitting(true);
     setError(null);
     setSuccess(false);
-
+  
     try {
       const response = await fetch("http://localhost:8080/users/add", {
         method: "POST",
@@ -80,20 +82,36 @@ export const Sign_up: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
+      if (response.status === 409) {
+        throw new Error("El correo electrónico ya está registrado.");
+      }
+  
       if (!response.ok) {
         const errorResponse = await response.json();
         throw new Error(
           errorResponse.message || `Error: ${response.statusText}`
         );
       }
-
+  
       const result = await response.json();
       setSuccess(true);
       setFormData(initialFormData);
-    } catch (err) {
+      setTimeout(() => {
+        navigate("/Login");
+      }, 2000); 
+    } catch (err: unknown) {
+      let errorMessage = "Ocurrió un error. Intenta nuevamente.";
+  
+      // Verificar si el error es una instancia de Error
+      if (err instanceof Error) {
+        errorMessage = err.message;
+      } else if (typeof err === "string") {
+        errorMessage = err;
+      }
+  
       console.error("Submission error:", err);
-      setError("Something went wrong. Please try again.");
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
