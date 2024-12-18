@@ -75,10 +75,8 @@ export const Sign_up: React.FC = () => {
 
       const result = await response.json();
       console.log('API Response:', result);
-
-      // Indicate success to the user
       setSuccess(true);
-      setFormData(initialFormData); // Clear form on success
+      setFormData(initialFormData);
     } catch (err: unknown) {
       console.error('Submission error:', err);
       setError('Something went wrong. Please try again.');
@@ -91,15 +89,17 @@ export const Sign_up: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-8 sm:px-12 lg:px-16">
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit} className="bg-white shadow-xl rounded-3xl p-8 space-y-6">
-          <div className="flex items-center space-x-4">
-            <a href="/">
-              <img
-                src="../../public/images/favicon.png"
-                alt="logo"
-                className="h-10 w-10 object-cover"
-              />
-            </a>
-            <h1 className="text-3xl font-bold text-green-500">Regístrate</h1>
+          <div className="flex flex-col items-center mb-8">
+            <div className="flex items-center justify-center gap-1">
+              <a href="/">
+                <img
+                  src="../../public/images/favicon.png"
+                  alt="logo"
+                  className="h-18 w-16 object-contain"
+                />
+              </a>
+              <h1 className="text-4xl font-bold text-green-500 text-center">Regístrate</h1>
+            </div>
           </div>
 
           <PersonalInfoSection formData={formData} onChange={handleInputChange} />
@@ -111,22 +111,22 @@ export const Sign_up: React.FC = () => {
           />
 
           {error && (
-            <div className="text-red-500 text-sm">
+            <div className="text-red-500 text-sm text-center">
               <p>{error}</p>
             </div>
           )}
 
           {success && (
-            <div className="text-green-500 text-sm">
+            <div className="text-green-500 text-sm text-center">
               <p>¡Registro exitoso! 🎉</p>
             </div>
           )}
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full bg-green-500 text-white py-3 px-4 rounded-full hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors ${
+              className={`w-full max-w-md mx-auto bg-green-500 text-white py-3 px-4 rounded-full hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors ${
                 isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
