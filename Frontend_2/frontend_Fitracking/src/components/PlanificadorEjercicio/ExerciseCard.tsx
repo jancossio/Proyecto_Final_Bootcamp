@@ -52,11 +52,11 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({ ejercicio, onRemove,
               </div>
               <div className="flex items-center text-sm text-gray-500">
                 <span className="w-4 h-4 mr-1">⏳</span>
-                Duration: {exercise?.duration} secs
+                Duration: {exercise?.duration} segs
               </div>
               <div className="flex items-center text-sm text-gray-500">
                 <span className="w-4 h-4 mr-1">🛌</span>
-                Rest: {exercise?.rest} secs
+                Rest: {exercise?.rest} segs
               </div>
             </div>
           </div>

@@ -3,9 +3,11 @@ import { UserRoutineExerciseInfo } from '../types/tipos';
 
 export const useFetchExercisesForDay = (userId: number, selectedDayId: number) => {
   const [exercises, setExercises] = useState<UserRoutineExerciseInfo[]>([]);
+  const [isFetching, setIsFetching] = useState(false); // Track loading state
 
   const fetchExercisesForDay = async (dayId: number) => {
     try {
+      setIsFetching(true); // Start fetching
       const response = await fetch(
         `http://localhost:8080/rutina_ejercicio/user/${userId}/routine-day/${dayId}`
       );
@@ -36,6 +38,8 @@ export const useFetchExercisesForDay = (userId: number, selectedDayId: number) =
       setExercises(formattedExercises);
     } catch (error) {
       console.error('Error fetching exercises:', error);
+    } finally {
+      setIsFetching(false); // Stop loading
     }
   };
 
@@ -45,5 +49,5 @@ export const useFetchExercisesForDay = (userId: number, selectedDayId: number) =
     }
   }, [selectedDayId]);
 
-  return { exercises, setExercises };
+  return { exercises, setExercises, isFetching };
 };

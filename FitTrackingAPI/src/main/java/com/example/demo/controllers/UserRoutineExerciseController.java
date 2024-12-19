@@ -80,11 +80,18 @@ public class UserRoutineExerciseController {
 
             userRoutineExerciseRepository.save(userRoutineExercise);
 
-            return ResponseEntity.ok("Exercise added successfully to routine!");
+            // Return a JSON response
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Exercise added successfully to routine!");
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error: " + e.getMessage());
+            // Return a JSON error response
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("error", "Error: " + e.getMessage());
+            return ResponseEntity.status(500).body(errorResponse);
         }
     }
+
 
     @DeleteMapping("/{user_id}/{routine_day_id}/{exercise_id}")
     public ResponseEntity<Void> deleteExercise(

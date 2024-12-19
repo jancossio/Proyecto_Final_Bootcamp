@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { X, Search } from 'lucide-react';
+import useAddExerciseToRoutine from '../../hooks/useAddExerciseToRoutine';
 import { ExerciseInfo } from '../../types/tipos';
 
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectExercise: (exercise: ExerciseInfo) => void;
-  selectedDay: string; // Add selectedDay as a prop to know which day the user has chosen
-  dayGoal: string; // Add dayGoal as a prop to include the day's goal
+  selectedDay: number;
+  dayGoal: string;
+  userId: number;
 }
 
 const ExerciseSearcher: React.FC<SearchModalProps> = ({
@@ -16,42 +18,38 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
   onSelectExercise,
   selectedDay,
   dayGoal,
+  userId,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [filteredExercises, setFilteredExercises] = useState<ExerciseInfo[]>([]); // To store exercises
-  const [allExercises, setAllExercises] = useState<ExerciseInfo[]>([]); // To store all fetched exercises
+  const [filteredExercises, setFilteredExercises] = useState<ExerciseInfo[]>([]);
+  const [allExercises, setAllExercises] = useState<ExerciseInfo[]>([]);
+
+  const { addExercise, loading, error } = useAddExerciseToRoutine({
+    userId,
+    selectedDay,
+    dayGoal,
+  });
 
   const difficulties = ['Principiante', 'Intermedio', 'Avanzado'];
-  const categories = ["Pecho", "Piernas", "Espalda", "Torso", "Hombros", "Cardio", "Brazos"];
+  const categories = [
+    'Pecho',
+    'Piernas',
+    'Espalda',
+    'Torso',
+    'Hombros',
+    'Cardio',
+    'Brazos',
+  ];
 
-
-  // Helper function to get day ID from day name
-  const getDayIdFromName = (dayName: string) => {
-    const days: { [key: string]: number } = {
-      Monday: 1,
-      Tuesday: 2,
-      Wednesday: 3,
-      Thursday: 4,
-      Friday: 5,
-      Saturday: 6,
-      Sunday: 7,
-    };
-    return days[dayName] || null;
-  };
-
-  // Fetch exercises from the API
   useEffect(() => {
     const fetchExercises = async () => {
       try {
         const response = await fetch('http://localhost:8080/ejercicios/search');
-        if (!response.ok) {
-          throw new Error('Failed to fetch exercises');
-        }
+        if (!response.ok) throw new Error('Failed to fetch exercises');
         const exercises: ExerciseInfo[] = await response.json();
         setAllExercises(exercises);
-        console.log('Fetched Exercises:', exercises);
       } catch (error) {
         console.error('Error fetching exercises:', error);
       }
@@ -59,7 +57,6 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
     fetchExercises();
   }, []);
 
-  // Filter exercises whenever search term, difficulty, or category changes
   useEffect(() => {
     const filtered = allExercises.filter((exercise) => {
       const matchesSearch = exercise.name
@@ -74,14 +71,20 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
     setFilteredExercises(filtered);
   }, [searchTerm, selectedDifficulty, selectedCategory, allExercises]);
 
-  
+  const handleExerciseClick = async (exercise: ExerciseInfo) => {
+    console.log(exercise);
+    await addExercise(exercise); // Use the custom hook
+    onSelectExercise(exercise); // Notify parent component
+    onClose(); // Close modal
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden">
         <div className="p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl font-semibold">Add Exercise</h2>
+          <h2 className="text-xl font-semibold">Agregar Ejercicios</h2>
           <button
             onClick={onClose}
             className="p-1 hover:bg-gray-100 rounded-full"
@@ -108,7 +111,7 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
               onChange={(e) => setSelectedDifficulty(e.target.value)}
               className="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="">All Difficulties</option>
+              <option value="">Dificultades</option>
               {difficulties.map((diff) => (
                 <option key={diff} value={diff}>
                   {diff}
@@ -120,7 +123,7 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="">All Categories</option>
+              <option value="">Categorías</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat}
@@ -133,53 +136,14 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
           <div className="overflow-y-auto max-h-[60vh]">
             {filteredExercises.length === 0 ? (
               <p className="text-center text-gray-500 py-8">
-                No se encuentran ejercicios con estas caracteristicas.
+                No hay ejercicios con estas caracteristicas.
               </p>
             ) : (
               <div className="grid grid-cols-1 gap-4">
                 {filteredExercises.map((exercise, index) => (
                   <div
                     key={index}
-                    onClick={() => {
-                      const payload = {
-                        userId: 1, // Replace with dynamic user ID
-                        day: { id: getDayIdFromName(selectedDay) }, // Send the day ID
-                        exercise: {
-                          id: exercise.id,
-                          name: exercise.name,
-                          description: exercise.description,
-                          difficulty: exercise.difficulty,
-                          category: exercise.category,
-                          image: exercise.image,
-                        },
-                        focus: dayGoal,
-                        completed: false,
-                      };
-
-                      // Send POST request to add the exercise
-                      fetch('http://localhost:8080/rutina_ejercicio/add', {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(payload),
-                      })
-                        .then((response) => {
-                          if (!response.ok)
-                            throw new Error(
-                              'Failed to add exercise to routine'
-                            );
-                          return response.json();
-                        })
-                        .then((data) => {
-                          console.log('Exercise added successfully:', data);
-                          onSelectExercise(exercise); // Notify parent
-                          onClose(); // Close the modal
-                        })
-                        .catch((error) => {
-                          console.error('Error adding exercise:', error);
-                        });
-                    }}
+                    onClick={() => handleExerciseClick(exercise)} // Add onClick to handle adding exercise
                     className="flex gap-4 p-4 border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
                   >
                     <img
@@ -215,6 +179,10 @@ const ExerciseSearcher: React.FC<SearchModalProps> = ({
             )}
           </div>
         </div>
+
+        {/* Loading and Error Message */}
+        {loading && <div className="text-center p-4">Agregando ejercicios...</div>}
+        {error && <div className="text-center text-red-500 p-4">{error}</div>}
       </div>
     </div>
   );
